@@ -1,4 +1,5 @@
-import { Box, Select, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import { Cards } from "./Cards";
 import { Navbar } from "./Navbar";
 
 const Mainbox = () => {
@@ -14,17 +15,18 @@ const Mainbox = () => {
         display="flex"
         justifyContent="space-between"
         flexDirection="row"
+        alignItems="center"
         width="100%"
-        border="1px solid gray"
         padding="1%"
       >
         <Box
-          border="1px solid red"
-          width={{ base: "40%" }}
+          width={{ base: "30%" }}
           display="flex"
           flexDirection="row"
+          alignItems="center"
           justifyContent="space-around"
-          fontWeight="500"
+          fontWeight="700"
+          color="gray.700"
           fontSize={{
             base: "0.6em",
             sm: "0.7em",
@@ -33,14 +35,14 @@ const Mainbox = () => {
             xl: "1em",
           }}
         >
-          <Text>ALL</Text>
-          <Text>LIVE</Text>
-          <Text>DRAFT</Text>
-          <Text>ARCHIVED</Text>
+          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ALL</Text>
+          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>LIVE</Text>
+          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>DRAFT</Text>
+          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ARCHIVED</Text>
         </Box>
-        <Box border="1px solid red" width={{ base: "20%" }}>
-          <Select width={{ base: "170px" }} padding={{ base: "0.1%" }}>
-            <option value="">Select</option>
+        <Box width={{ base: "20%" }}>
+          <select style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", width: "110px", padding: "1%"}}>
+            <option value="">Select team</option>
             <option value="">Option-1</option>
             <option value="">Option-2</option>
             <option value="">Option-3</option>
@@ -49,8 +51,11 @@ const Mainbox = () => {
             <option value="">Option-6</option>
             <option value="">Option-7</option>
             <option value="">Option-8</option>
-          </Select>
+          </select>
         </Box>
+      </Box>
+      <Box border="1px solid red">
+          <Cards/>
       </Box>
     </Box>
   );
