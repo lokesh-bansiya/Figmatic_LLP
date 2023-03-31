@@ -1,0 +1,259 @@
+.Container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px;
+
+    position: relative;
+    width: 90%;
+    /* height: 621px; */
+
+    background: #c3e6cd;
+    border-radius: 40px 40px 0px 0px;
+    margin: auto;
+}
+
+.Container .firstChild {
+    width: 100%;
+}
+
+.Container .firstChild .summary {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px;
+
+    /* width: max-content;
+    border: 1px solid red;
+    height: 82px;
+
+
+    flex: none;
+    order: 0;
+    align-self: stretch;
+    flex-grow: 0; */
+}
+
+
+.Container .firstChild .summary .pages {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 10px;
+}
+
+.Container .firstChild .summary .pages .five {
+
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    /* font-size: 80px; */
+    /* line-height: 60px; */
+    font-size: 300%;
+    line-height: 90%;
+    /* identical to box height, or 75% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+}
+
+.Container .firstChild .summary .pages .textwithfive {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 90%;
+    /* line-height: 100%; */
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+
+}
+
+.Container .firstChild .summary .numbers {
+    display: flex;
+    width: 80%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 0px;
+}
+
+
+.Container .firstChild .summary .numbers .frame86 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+
+    width: 25%;
+}
+
+
+.Container .firstChild .summary .numbers .frame86 .text300 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100%;
+    line-height: 100%;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+}
+
+
+.Container .firstChild .summary .numbers .frame86 .pagedesign {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 90%;
+    line-height: 100%;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+}
+
+
+.Container .firstChild .summary .numbers .frame90 {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0px;
+    gap: 10px;
+    width: fit-content;
+}
+
+.subtotal {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 80%;
+    line-height: 100%;
+    /* identical to box height */
+
+    display: flex;
+    align-items: center;
+    text-align: right;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+
+}
+
+.doller800 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 200%;
+    line-height: 100%;
+    /* identical to box height, or 67% */
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+
+    color: #000000;
+
+}
+
+
+
+.line {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 0px;
+    gap: 20px;
+    width: 100%;
+}
+
+.lineinside {
+    border: 2px solid #000000;
+    transform: rotate(-0.2deg);
+    width: 99.3%;
+}
+
+.table {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0px;
+    gap: 14px;
+}
+
+.table .theader {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+    border: 1px solid red;
+}
+
+.td_pages{
+    display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0px;
+}
+
+.heading{
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 24px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+    
+    color: #000000;
+}
+
+.headingIcon{
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    /* identical to box height */
+    
+    display: flex;
+    align-items: center;
+    text-align: center;
+    
+    color: #000000;
+}
+
+.table .tRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+    gap: 40px;
+
+    /* width: auto;
+    height: 56px; */
+}
