@@ -1,4 +1,4 @@
-import { Drawer, Box, Image, Text, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import { Drawer, Box, Image, Text, DrawerBody, DrawerCloseButton, DrawerContent, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
 import logo1 from "../Assests/logo1.png";
 import { FaHome } from "react-icons/fa";
 import { HiOutlineAcademicCap } from "react-icons/hi";
@@ -13,7 +13,7 @@ import { TbSettings } from "react-icons/tb";
 import { RiBuildingLine } from "react-icons/ri";
 import "../Styles/Sidebar.css";
 import { HiMenu } from "react-icons/hi";
-import React, { useEffect } from "react";
+import React from "react";
 import "../Styles/Sidebar.css";
 
 
@@ -24,7 +24,7 @@ const MenuDrawer = () => {
 
     return (
         <>
-            <Box ref={btnRef} colorScheme='teal' onClick={onOpen}>
+            <Box ref={btnRef} colorscheme='teal' onClick={onOpen}>
                 <HiMenu />
             </Box>
             <Drawer

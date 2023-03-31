@@ -39,6 +39,7 @@ const Sidebar = () => {
             fontWeight="bold"
             padding="3%"
             justifyContent="left"
+            alignItems="center"
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
@@ -67,6 +68,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
           >
             <HiOutlineAcademicCap fontSize="100%" />
             <Text
@@ -92,6 +94,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
           >
             <MdPeopleAlt fontSize="100%" />
             <Text
@@ -117,6 +120,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
           >
             <BsMicrosoftTeams fontSize="100%" />
             <Text
@@ -142,6 +146,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
           >
             <CiVault fontSize="100%" />
             <Text
@@ -167,6 +172,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
           >
             <BsChatSquareTextFill fontSize="100%" />
             <Text
@@ -197,6 +203,7 @@ const Sidebar = () => {
             marginLeft="auto"
             marginRight="auto"
             marginBottom="2%"
+            alignItems="center"
             paddingLeft="5%"
           >
             <TbSettings fontSize="100%" />
@@ -225,6 +232,7 @@ const Sidebar = () => {
             marginRight="auto"
             marginBottom="2%"
             paddingLeft="5%"
+            alignItems="center"
           >
             <RiBuildingLine fontSize="100%" />
             <Text
@@ -252,6 +260,7 @@ const Sidebar = () => {
             marginRight="auto"
             marginBottom="2%"
             paddingLeft="5%"
+            alignItems="center"
           >
             <BsPersonCircle fontSize="100%" />
             <Text
@@ -263,6 +272,7 @@ const Sidebar = () => {
                 lg: "0.7em",
                 xl: "1em",
               }}
+              alignItems="center"
             >
               MY PROFILE
             </Text>
@@ -275,7 +285,8 @@ const Sidebar = () => {
                 md: "0.5em%",
                 lg: "0.5em",
                 xl: "0.6em",
-              }}>Powered By Team</Text>
+              }}
+              >Powered By Team</Text>
         </Box>
       </Box>
     </Box>

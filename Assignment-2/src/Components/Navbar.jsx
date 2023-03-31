@@ -11,10 +11,10 @@ const Navbar = () => {
       width="100%"
       justifyContent="space-between"
       alignItems="center"
-      padding="1%"
+      padding={{base: "4%", md:"1%"}}
       paddingLeft={{base: "3%"}}
       paddingRight={{base: "2%"}}
-      position="sticky"
+      position="fixed"
       top="0"
       backgroundColor="white"
       boxShadow="rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px"
@@ -34,7 +34,7 @@ const Navbar = () => {
           KNOWLEDGE
         </Text>
       </Box>
-      <Box display="flex" justifyContent="right" alignItems="center">
+      <Box marginRight={{base: "0%", md:"20%", lg:"15%", xl:"16%"}} display="flex" justifyContent="right" alignItems="center">
         <Box marginRight={{base: "3%"}}>
             <CreateCourse/>
         </Box>

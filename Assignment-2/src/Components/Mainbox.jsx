@@ -14,7 +14,10 @@ const Mainbox = () => {
         flexDirection="row"
         alignItems="center"
         width="100%"
-        padding="1%"
+        padding={{base: "2.5%", md:"1%"}}
+        paddingTop={{base: "25%", md:"10%",lg:"9%", xl:"9%"}}
+        
+        // border="1px solid red"
       >
         <Box
           width={{ base: "65%", sm:"60%", md: "35%", lg: "30%", xl: "30%" }}
@@ -27,11 +30,12 @@ const Mainbox = () => {
           fontSize={{
             base: "0.6em",
             sm: "0.7em",
-            md: "0.7em%",
+            md: "0.7em",
             lg: "0.7em",
             xl: "1em",
           }}
-          paddingTop="2%"
+          // paddingTop="2%"
+          // border="1px solid red"
         >
           <Text className="MenuBar"><MenuDrawer/></Text>
           <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ALL</Text>
