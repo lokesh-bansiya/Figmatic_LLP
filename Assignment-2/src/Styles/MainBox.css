@@ -10,7 +10,7 @@
     width: 110px;
 }
 
-.MenuBar{
+.MenuBar {
     display: none;
 }
 
@@ -36,9 +36,9 @@
     .selectBox {
         width: 60px;
     }
-    
-.MenuBar{
-    display: block;
-    font-size: 200%;
-}
+
+    .MenuBar {
+        display: block;
+        font-size: 200%;
+    }
 }

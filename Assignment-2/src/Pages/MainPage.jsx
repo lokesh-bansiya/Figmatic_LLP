@@ -4,7 +4,7 @@ import { Mainbox } from "../Components/Mainbox";
 
 const MainPage = () => {
     return (
-        <Box w="100%" display="flex" boxSize="border-box" border="1px solid black">
+        <Box w="100%" display="flex">
             <Sidebar/>
             <Mainbox/>
         </Box>

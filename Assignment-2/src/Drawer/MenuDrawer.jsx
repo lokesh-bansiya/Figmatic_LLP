@@ -1,4 +1,4 @@
-import { Button, Drawer, Box, Image, Text, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
+import { Drawer, Box, Image, Text, DrawerBody, DrawerCloseButton, DrawerContent, DrawerFooter, DrawerOverlay, useDisclosure } from "@chakra-ui/react"
 import logo1 from "../Assests/logo1.png";
 import { FaHome } from "react-icons/fa";
 import { HiOutlineAcademicCap } from "react-icons/hi";
@@ -13,12 +13,14 @@ import { TbSettings } from "react-icons/tb";
 import { RiBuildingLine } from "react-icons/ri";
 import "../Styles/Sidebar.css";
 import { HiMenu } from "react-icons/hi";
-import React from "react";
+import React, { useEffect } from "react";
+import "../Styles/Sidebar.css";
 
 
 const MenuDrawer = () => {
-    const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+
+    const { isOpen, onOpen, onClose } = useDisclosure();
+    const btnRef = React.useRef();
 
     return (
         <>
@@ -26,25 +28,27 @@ const MenuDrawer = () => {
                 <HiMenu />
             </Box>
             <Drawer
+                className="drawer"   
                 isOpen={isOpen}
                 placement='left'
                 onClose={onClose}
                 finalFocusRef={btnRef}
                 backgroundColor="black"
+                position="relative"
+                size={'full'}
             >
                 <DrawerOverlay />
                 <DrawerContent>
                     <DrawerCloseButton position="absolute" zIndex={5} color="white"/>
 
-                    <DrawerBody>
-                        <Box className="SidebarMainContainer" margin="auto" marginLeft="-25px" marginTop="-15px" display="flex" width="full">
+                    <DrawerBody backgroundColor="black">
+                        <Box width="50%" className="SidebarMainContainer" borderRight="none" margin="auto" marginLeft="-25px" marginTop="-15px" display="flex">
                             <Box height="100%">
                                 <Box
                                     padding={{ base: "2%" }}
-                                    width="70%"
+                                    width="90%"
                                     margin="auto"
-                                    mt={{ base: "15%" }}
-                                    mb={{ base: "15%" }}
+                                    mt={{ base: "10%" }}
                                 >
                                     <Image width="100%" src={logo1} alt="logo" />
                                 </Box>

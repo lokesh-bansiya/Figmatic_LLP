@@ -20,10 +20,10 @@ const Sidebar = () => {
       <Box height="100%">
         <Box
           padding={{ base: "2%" }}
-          width="70%"
+          width="90%"
           margin="auto"
-          mt={{ base: "15%" }}
-          mb={{ base: "15%" }}
+          mt={{ base: "5%" }}
+          mb={{ base: "5%" }}
         >
           <Image width="100%" src={logo1} alt="logo" />
         </Box>
