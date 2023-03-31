@@ -11,19 +11,12 @@ import {
 import { CiVault } from "react-icons/ci";
 import { TbSettings } from "react-icons/tb";
 import { RiBuildingLine } from "react-icons/ri";
+import "../Styles/Sidebar.css";
+
 
 const Sidebar = () => {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      justifyContent="space-between"
-      width={{ base: "35%", sm: "30%", md: "25%", lg: "15%", xl: "15%" }}
-      minHeight="100vh"
-      borderRight="3px solid #02b1d4"
-      backgroundColor="black"
-      color="white"
-    >
+    <Box  className="SidebarMainContainer">
       <Box height="100%">
         <Box
           padding={{ base: "2%" }}

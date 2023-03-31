@@ -1,15 +1,12 @@
 import { Box, Text } from "@chakra-ui/react";
 import { Cards } from "./Cards";
 import { Navbar } from "./Navbar";
+import "../Styles/MainBox.css";
+import { MenuDrawer } from "../Drawer/MenuDrawer";
 
 const Mainbox = () => {
   return (
-    <Box
-      display="flex"
-      flexDirection="column"
-      width={{ base: "65%", sm: "70%", md: "75%", lg: "85%", xl: "85%" }}
-      minHeight="100vh"
-    >
+    <Box className="MainBoxContainer" >
       <Navbar />
       <Box
         display="flex"
@@ -20,7 +17,7 @@ const Mainbox = () => {
         padding="1%"
       >
         <Box
-          width={{ base: "30%" }}
+          width={{ base: "65%", sm:"60%", md: "35%", lg: "30%", xl: "30%" }}
           display="flex"
           flexDirection="row"
           alignItems="center"
@@ -34,14 +31,16 @@ const Mainbox = () => {
             lg: "0.7em",
             xl: "1em",
           }}
+          paddingTop="2%"
         >
+          <Text className="MenuBar"><MenuDrawer/></Text>
           <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ALL</Text>
           <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>LIVE</Text>
           <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>DRAFT</Text>
           <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ARCHIVED</Text>
         </Box>
-        <Box width={{ base: "20%" }}>
-          <select style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", width: "110px", padding: "1%"}}>
+        <Box width={{ base: "35%", sm:"30%", md: "25%", lg: "20%", xl: "20%" }} >
+          <select className="selectBox" style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", padding: "1%",}}>
             <option value="">Select team</option>
             <option value="">Option-1</option>
             <option value="">Option-2</option>
@@ -54,7 +53,7 @@ const Mainbox = () => {
           </select>
         </Box>
       </Box>
-      <Box border="1px solid red">
+      <Box>
           <Cards/>
       </Box>
     </Box>

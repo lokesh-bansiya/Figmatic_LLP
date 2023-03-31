@@ -1,0 +1,225 @@
+.Grid_Container{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 3%;
+    padding-top: 2%;
+}
+
+.ContainerBox {
+    margin: 4%;
+    border: 1px solid gray;
+}
+
+.FirstBox {
+    height: 250px;
+}
+
+.text1 {
+    font-size: 100%;
+}
+
+.textBox {
+    display: flex;
+    width: 30%;
+    font-size: 100%;
+    align-items: center;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    margin-right: 0%;
+}
+
+.Icons {
+    font-size: 100%;
+    margin-right: 5%;
+}
+
+@media all and (min-width: 1851px) and (max-width: 2135px) {
+    .Grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .textBox {
+        width: 35%;
+    }
+
+}
+
+@media all and (min-width: 1670px) and (max-width: 1850px) {
+    .Grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .FirstBox {
+        height: 220px;
+    }
+
+    .textBox {
+        width: 40%;
+    }
+}
+
+@media all and (min-width: 1431px) and (max-width: 1671px) {
+    .Grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .FirstBox {
+        height: 200px;
+    }
+
+    .textBox {
+        width: 45%;
+    }
+}
+
+@media all and (min-width: 1288px) and (max-width: 1430px) {
+    .Grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .FirstBox {
+        height: 190px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+}
+
+@media all and (min-width: 901px) and (max-width: 1287px) {
+    .Grid_Container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .FirstBox {
+        height: 140px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 80%;
+    }
+
+    .textBox {
+        width: 50%;
+        font-size: 80%;
+    }
+}
+
+@media all and (min-width: 768px) and (max-width: 900px) {
+    .Grid_Container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .FirstBox {
+        height: 140px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 80%;
+    }
+
+    .textBox {
+        width: 50%;
+        font-size: 80%;
+    }
+}
+
+@media all and (min-width: 551px) and (max-width: 767px) {
+    .Grid_Container{
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .FirstBox {
+        height: 120px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 70%;
+    }
+
+    .textBox {
+        width: 50%;
+        font-size: 80%;
+    }
+}
+
+@media all and (min-width: 481px) and (max-width: 550px) {
+    .Grid_Container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .FirstBox {
+        height: 150px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 80%;
+    }
+
+    .textBox {
+        width: 50%;
+        font-size: 80%;
+    }
+}
+
+@media all and (min-width: 280px) and (max-width: 480px) {
+
+    .Grid_Container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .FirstBox {
+        height: 200px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 100%;
+    }
+
+    .textBox {
+        width: 40%;
+        font-size: 100%;
+    }
+}
+
+@media all and (min-width: 280px) and (max-width: 349px) {
+
+    .Grid_Container{
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .FirstBox {
+        height: 180px;
+    }
+
+    .textBox {
+        width: 50%;
+    }
+
+    .text1 {
+        font-size: 80%;
+    }
+
+    .textBox {
+        width: 40%;
+        font-size: 80%;
+    }
+}

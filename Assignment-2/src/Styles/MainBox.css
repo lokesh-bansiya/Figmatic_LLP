@@ -1,0 +1,44 @@
+.MainBoxContainer {
+    display: flex;
+    flex-direction: column;
+    width: 85%;
+    min-height: 100vh;
+    margin-left: 15%;
+}
+
+.selectBox {
+    width: 110px;
+}
+
+.MenuBar{
+    display: none;
+}
+
+@media all and (min-width: 636px) and (max-width: 991px) {
+    .MainBoxContainer {
+        width: 80%;
+        min-height: 100vh;
+        margin-left: 20%;
+    }
+
+    .selectBox {
+        width: 100px;
+    }
+}
+
+@media all and (min-width: 201px) and (max-width: 635px) {
+    .MainBoxContainer {
+        width: 100%;
+        min-height: 100vh;
+        margin: auto;
+    }
+
+    .selectBox {
+        width: 60px;
+    }
+    
+.MenuBar{
+    display: block;
+    font-size: 200%;
+}
+}

@@ -8,17 +8,16 @@ import web3 from "../Assests/web3.jpeg";
 import web4 from "../Assests/web4.jpg";
 import web5 from "../Assests/web5.avif";
 import web6 from "../Assests/web6.jpg";
+import web7 from "../Assests/web7.jpg";
+import "../Styles/Card.css";
 
 
 const Cards = () => {
   return (
-    <Box
-      display="grid"
-      gridTemplateColumns={{ base: "repeat(1,1fr)", sm:"repeat(2,1fr)", md:"repeat(3,1fr)",lg:"repeat(4,1fr)", xl:"repeat(4,1fr)" }}
-      padding={{ base: "3%" }}
-    >
-      <Box border="1px solid gray" margin="4%">
-        <Box height="50%">
+    <Box className="Grid_Container" >
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -28,12 +27,11 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(128, 128, 128, 0.473)"
               size={"sm"}
             >
               <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <Text fontSize="70%" color="white">DRAFT</Text>
             </Tag>
           </Box>
           <Image
@@ -46,42 +44,30 @@ const Cards = () => {
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
               XYZ
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -90,8 +76,10 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
+
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -101,12 +89,11 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
               size={"sm"}
             >
-              <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <GoPrimitiveDot color="gray" />
+              <Text fontSize="70%" color="white">ARCHIVED</Text>
             </Tag>
           </Box>
           <Image
@@ -119,42 +106,41 @@ const Cards = () => {
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              Sales vs Marketing
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
+              padding="1% 3% 2% 3%"
+              marginRight="2%"
+            >
+              Sales
+            </Tag>
+            <Tag
+              borderRadius="5px"
+              backgroundColor="rgba(128, 128, 128, 0.267)"
+              fontSize="60%"
+              size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -163,8 +149,10 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
+
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -174,12 +162,135 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
+              size={"sm"}
+            >
+              <GoPrimitiveDot color="red" />
+              <Text fontSize="70%" color="white">LIVE</Text>
+            </Tag>
+          </Box>
+          <Image
+            marginTop="-32px"
+            height="100%"
+            width="100%"
+            src={web7}
+            alt="img7"
+          />
+        </Box>
+        <Box textAlign="left" padding="5%" color="gray.600">
+          <Box>
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              XYZ
+            </Text>
+          </Box>
+          <Box>
+            <Text className="text1">Last updated: 4/08/22</Text>
+          </Box>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
+            </Box>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
+            </Box>
+          </Box>
+          <Box>
+          <Tag
+              borderRadius="5px"
+              backgroundColor="rgba(128, 128, 128, 0.267)"
+              fontSize="60%"
+              size={"sm"}
+              fontWeight="500"
+              padding="1% 3% 2% 3%"
+              marginRight="2%"
+            >
+              Sales
+            </Tag>
+          </Box>
+        </Box>
+      </Box>
+
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
+          <Box
+            position="relative"
+            top="3%"
+            display="flex"
+            justifyContent="right"
+            padding="2%"
+          >
+            <Tag
+              borderRadius="0px"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
+              size={"sm"}
+            >
+              <GoPrimitiveDot color="red" />
+              <Text fontSize="70%" color="white">LIVE</Text>
+            </Tag>
+          </Box>
+          <Image
+            marginTop="-32px"
+            height="100%"
+            width="100%"
+            src={web2}
+            alt="img2"
+          />
+        </Box>
+        <Box textAlign="left" padding="5%" color="gray.600">
+          <Box>
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              How Google Analytics Ruined Marketing
+            </Text>
+          </Box>
+          <Box>
+            <Text className="text1">Last updated: 4/08/22</Text>
+          </Box>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
+            </Box>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
+            </Box>
+          </Box>
+          <Box>
+          <Tag
+              borderRadius="5px"
+              backgroundColor="rgba(128, 128, 128, 0.267)"
+              fontSize="60%"
+              size={"sm"}
+              fontWeight="500"
+              padding="1% 3% 2% 3%"
+              marginRight="2%"
+            >
+              Sales
+            </Tag>
+          </Box>
+        </Box>
+      </Box>
+
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
+          <Box
+            position="relative"
+            top="3%"
+            display="flex"
+            justifyContent="right"
+            padding="2%"
+          >
+            <Tag
+              borderRadius="0px"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
               size={"sm"}
             >
               <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <Text fontSize="70%" color="white">DRAFT</Text>
             </Tag>
           </Box>
           <Image
@@ -187,47 +298,46 @@ const Cards = () => {
             height="100%"
             width="100%"
             src={web3}
-            alt="img1"
+            alt="img3"
           />
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              How to Unclog a sink
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
+          <Tag
+              borderRadius="5px"
+              backgroundColor="rgba(128, 128, 128, 0.267)"
+              fontSize="60%"
+              size={"sm"}
+              fontWeight="500"
+              padding="1% 3% 2% 3%"
+              marginRight="2%"
+            >
+              Sales
+            </Tag>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -236,8 +346,8 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -247,12 +357,11 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
               size={"sm"}
             >
-              <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <GoPrimitiveDot color="red" />
+              <Text fontSize="70%" color="white">LIVE</Text>
             </Tag>
           </Box>
           <Image
@@ -260,47 +369,46 @@ const Cards = () => {
             height="100%"
             width="100%"
             src={web4}
-            alt="img1"
+            alt="img4"
           />
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              Compilance Training
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
+          <Tag
+              borderRadius="5px"
+              backgroundColor="rgba(128, 128, 128, 0.267)"
+              fontSize="60%"
+              size={"sm"}
+              fontWeight="500"
+              padding="1% 3% 2% 3%"
+              marginRight="2%"
+            >
+              Sales
+            </Tag>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -309,8 +417,9 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -320,12 +429,11 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
               size={"sm"}
             >
-              <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <GoPrimitiveDot color="red" />
+              <Text fontSize="70%" color="white">LIVE</Text>
             </Tag>
           </Box>
           <Image
@@ -333,47 +441,35 @@ const Cards = () => {
             height="100%"
             width="100%"
             src={web5}
-            alt="img1"
+            alt="img5"
           />
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              Top Tips to Bargaining
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -382,8 +478,9 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
+
+      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+        <Box className="FirstBox">
           <Box
             position="relative"
             top="3%"
@@ -393,12 +490,11 @@ const Cards = () => {
           >
             <Tag
               borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
+              backgroundColor="rgba(10, 9, 9, 0.399)"
               size={"sm"}
             >
-              <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
+              <GoPrimitiveDot color="red" />
+              <Text fontSize="70%" color="white">LIVE</Text>
             </Tag>
           </Box>
           <Image
@@ -406,47 +502,35 @@ const Cards = () => {
             height="100%"
             width="100%"
             src={web6}
-            alt="img1"
+            alt="img6"
           />
         </Box>
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
+            <Text fontWeight="bold" fontSize={{ base: "80%" }}>
+              Social Media Marketing
             </Text>
           </Box>
           <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
+            <Text className="text1">Last updated: 4/08/22</Text>
           </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
+          <Box display="flex" justifyContent="left">
+            <Box className="textBox">
+              <HiOutlineDocumentText className="Icons"/>
+              <Text className="text1"> Lessons: 1</Text>
             </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
+            <Box className="textBox">
+              <AiOutlineClockCircle className="Icons" />
+              <Text className="text1"> Minutes: 13</Text>
             </Box>
           </Box>
           <Box>
             <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
+              fontSize="60%"
               size={"sm"}
+              fontWeight="500"
               padding="1% 3% 2% 3%"
             >
               Marketing
@@ -455,78 +539,6 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box border="1px solid gray" margin="4%">
-        <Box height="140px">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.575)"
-              fontSize="80%"
-              size={"sm"}
-            >
-              <GoPrimitiveDot color="green" />
-              <Text>DRAFT</Text>
-            </Tag>
-          </Box>
-          <Image
-            marginTop="-32px"
-            height="100%"
-            width="100%"
-            src={web5}
-            alt="img1"
-          />
-        </Box>
-        <Box textAlign="left" padding="5%" color="gray.600">
-          <Box>
-            <Text fontWeight="bold" fontSize={{ base: "90%" }}>
-              XYZ
-            </Text>
-          </Box>
-          <Box>
-            <Text fontSize={{ base: "80%" }}>Last updated: 4/08/22</Text>
-          </Box>
-          <Box display="flex">
-            <Box
-              display="flex"
-              width="40%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-              marginRight="5%"
-            >
-              <HiOutlineDocumentText fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Lessons: 1</Text>
-            </Box>
-            <Box
-              display="flex"
-              width="45%"
-              justifyContent="space-between"
-              marginTop={{ base: "3%" }}
-              marginBottom={{ base: "5%" }}
-            >
-              <AiOutlineClockCircle fontSize="90%" />
-              <Text fontSize={{ base: "80%" }}> Minutes: 13</Text>
-            </Box>
-          </Box>
-          <Box>
-            <Tag
-              borderRadius="5px"
-              backgroundColor="rgba(128, 128, 128, 0.267)"
-              fontSize="80%"
-              size={"sm"}
-              padding="1% 3% 2% 3%"
-            >
-              Marketing
-            </Tag>
-          </Box>
-        </Box>
-      </Box>
     </Box>
   );
 };

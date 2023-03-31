@@ -9,7 +9,7 @@ const CreateCourse = () => {
 
     return (
         <>
-            <Button fontSize="80%" onClick={onOpen} size="sm" backgroundColor="#02879c" color="white" borderRadius="1px" border="1px solid black">CREATE COURSE</Button>
+            <Button padding="-1px" fontSize="80%" onClick={onOpen} size="sm" backgroundColor="#027070" color="white" borderRadius="1px" border="1px solid black">CREATE COURSE</Button>
 
             <Modal
                 initialFocusRef={initialRef}

@@ -1,0 +1,25 @@
+.SidebarMainContainer{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 15%;
+      min-height: 100vh;
+      max-height: 100vh;
+      border-right: 3px solid #02b1d4;
+      background-color: black;
+      color: white;
+      position: fixed;
+}
+
+@media all and (min-width: 636px) and (max-width: 991px) {
+    .SidebarMainContainer{
+        width: 20%;
+    }
+    
+}
+@media all and (min-width: 200px) and (max-width: 635px) {
+    .SidebarMainContainer{
+        width: 20%;
+        display: none;
+    }
+}
