@@ -5,7 +5,7 @@
     padding: 5%;
     padding-top: 2%;
     position: relative;
-    width: 90%;
+    width: 98%;
     background: #c3e6cd;
     border-radius: 40px 40px 0px 0px;
     margin: auto;
@@ -403,11 +403,11 @@ tbody, thead{
 }
 
 
-@media all and (min-width: 500px) and (max-width: 1181px) {
+@media all and (min-width: 885px) and (max-width: 1181px) {
 
     .Container .firstChild .summary .pages .five {
         font-size: 280%;
-        line-height: 90%;
+        line-height: 100%;
     }
 
     .Container .firstChild .summary .pages .textwithfive {
@@ -464,6 +464,141 @@ tbody, thead{
 
     .frame72_200 {
         font-size: 90%;
+    }
+
+}
+
+
+@media all and (min-width: 685px) and (max-width: 884px) {
+
+    .Container .firstChild .summary .pages .five {
+        font-size: 200%;
+        line-height: 100%;
+    }
+
+    .Container .firstChild .summary .pages .textwithfive {
+        font-size: 70%;
+    }
+
+    .Container .firstChild .summary .numbers .frame86 .text300 {
+        font-size: 60%;
+        line-height: 100%;
+    }
+
+    .Container .firstChild .summary .numbers .extra100 {
+        margin-left: 15%;
+    }
+
+    .Container .firstChild .summary .numbers .extra200 {
+        margin-left: 5%;
+    }
+
+
+    .Container .firstChild .summary .numbers .frame86 .pagedesign {
+        font-size: 50%;
+    }
+
+    .subtotal {
+        font-size: 50%;
+    }
+
+    .doller800 {
+        font-size: 130%;
+    }
+
+    .frame78 {
+        font-size: 50%;
+    }
+
+
+    .numbering {
+        font-size: 50%;
+    }
+
+
+    .rowContent {
+        font-size: 50%;
+    }
+
+    .heading {
+        font-size: 50%;
+    }
+
+    .headingIcon {
+        width: 8px;
+    }
+
+    .frame72_200 {
+        font-size: 70%;
+    }
+
+}
+
+
+@media all and (min-width: 350px) and (max-width: 684px) {
+    .Container {
+        width: 99%;
+        border-radius: 20px 20px 0px 0px;
+    }
+    .Container .firstChild .summary .pages .five {
+        font-size: 100%;
+        line-height: 100%;
+    }
+
+    .Container .firstChild .summary .pages .textwithfive {
+        font-size: 40%;
+    }
+
+    .Container .firstChild .summary .numbers .frame86 .text300 {
+        font-size: 40%;
+        line-height: 100%;
+    }
+
+    .Container .firstChild .summary .numbers .extra100 {
+        margin-left: 12%;
+    }
+
+    .Container .firstChild .summary .numbers .extra200 {
+        margin-left: 3%;
+    }
+
+
+    .Container .firstChild .summary .numbers .frame86 .pagedesign {
+        font-size: 10%;
+    }
+
+    .subtotal {
+        font-size: 30%;
+    }
+
+    .doller800 {
+        font-size: 90%;
+    }
+
+    .frame78 {
+        font-size: 30%;
+    }
+
+
+    .numbering {
+        font-size: 30%;
+    }
+
+
+    .rowContent {
+        font-size: 30%;
+    }
+
+    .heading {
+        font-size: 30%;
+    }
+
+    .headingIcon {
+        width: 8px;
+    }
+
+    .frame72_200 {
+        font-size: 40%;
     }
 
 }

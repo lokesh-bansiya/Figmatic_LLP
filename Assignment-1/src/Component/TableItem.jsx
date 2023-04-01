@@ -153,7 +153,12 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
             </td>
 
             <td className="td_Cost td3">
-                <DeleteIcon color="gray" _hover={{ cursor: "pointer", transform: "scale(1.3)", transition: "0.4s ease-in", color: "red" }} onClick={() => deleteHandler(_id)} />
+                <DeleteIcon 
+                   color="gray" 
+                   _hover={{ cursor: "pointer", transform: "scale(1.3)", transition: "0.4s ease-in", color: "red" }} 
+                   onClick={() => deleteHandler(_id)} 
+                   fontSize={{base: "70%", sm:"80%", md:"90%", lg:"150%",xl:"150%"}}
+                />
             </td>
         </tr>
     );

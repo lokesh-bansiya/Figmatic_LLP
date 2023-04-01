@@ -133,7 +133,16 @@ const AddNewData = () => {
 
     return (
         <>
-            <Button padding="-1px" fontSize="80%" onClick={onOpen} size="sm" backgroundColor="#027070" color="white" borderRadius="1px" border="1px solid black">
+            <Button 
+                padding="-1px" 
+                fontSize={{base: "50%", sm:"60%", md:"70%", lg:"80%", xl:"90%"}}
+                onClick={onOpen} 
+                size="sm" 
+                backgroundColor="#027070" 
+                color="white" 
+                borderRadius="1px" 
+                border="1px solid black"
+            >
                 Add More Item
             </Button>
 
