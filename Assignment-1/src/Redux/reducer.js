@@ -2,6 +2,7 @@ import * as types from "./actionTypes";
 
 const prevState = {
     data: [],
+    singleItem: [],
     isLoading: false,
     isError: false,
 };
@@ -27,6 +28,19 @@ const reducer = (state = prevState, action) => {
                 ...state,
                 isLoading: false,
                 isError: true,
+            };
+        case types.GET_BYID_REQUEST:
+            return {
+                ...state,
+            };
+        case types.GET_BYID_SUCCESS:
+            return {
+                ...state,
+                singleItem: payload,
+            };
+        case types.GET_BYID_ERROR:
+            return {
+                ...state,
             };
         default:
             return state;

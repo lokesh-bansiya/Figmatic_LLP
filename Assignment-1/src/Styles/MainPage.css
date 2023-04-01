@@ -2,13 +2,18 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px;
+    padding: 5%;
+    padding-top: 2%;
     position: relative;
     width: 90%;
     background: #c3e6cd;
     border-radius: 40px 40px 0px 0px;
     margin: auto;
     margin-top: 2%;
+}
+
+.button{
+    border: 1px solid white;
 }
 
 .Container .firstChild {
@@ -353,10 +358,6 @@ tbody, thead{
     padding: 2% 0% 2% 0%;
     margin-right: 40%;
 }
-/* 
-.basic {
-    background: #91D4A8;
-} */
 
 
 .Complex {
@@ -402,7 +403,7 @@ tbody, thead{
 }
 
 
-@media all and (min-width: 500px) and (max-width: 1021px) {
+@media all and (min-width: 500px) and (max-width: 1181px) {
 
     .Container .firstChild .summary .pages .five {
         font-size: 280%;

@@ -3,10 +3,10 @@ import * as types from "./actionTypes";
 
 const getData = () => (dispatch) => {
     dispatch({ type: types.GET_DATA_REQUEST });
-    return axios.get(`https://json-server-kappa-five.vercel.app/Calculator`)
+    return axios.get(`https://awesome-products-backend.vercel.app/calculator`)
         .then((res) => {
             dispatch({ type: types.GET_DATA_SUCCESS, payload: res.data });
-            console.log(res.data);
+            // console.log(res.data);
         })
         .then((err) => {
             dispatch({ type: types.GET_DATA_FAILURE, payload: err });
@@ -15,7 +15,7 @@ const getData = () => (dispatch) => {
 
 const addNewData = (payload) => (dispatch) => {
     dispatch({ type: types.ADD_NEW_DATA_REQUEST });
-    return axios.post(`https://json-server-kappa-five.vercel.app/Calculator`, payload)
+    return axios.post(`https://awesome-products-backend.vercel.app/calculator/add`, payload)
         .then((res) => {
             dispatch({ type: types.ADD_NEW_DATA_SUCCESS, payload: res.data });
         })
@@ -26,10 +26,10 @@ const addNewData = (payload) => (dispatch) => {
 
 const updateData = (id, payload) => (dispatch) => {
     dispatch({ type: types.UPDATE_DATA_REQUEST });
-    return axios.patch(`https://json-server-kappa-five.vercel.app/Calculator/${id}`, payload)
+    return axios.patch(`https://awesome-products-backend.vercel.app/calculator/update/${id}`, payload)
         .then((res) => {
             dispatch({ type: types.UPDATE_DATA_SUCCESS, payload: res.data });
-            console.log("updated data: ", payload);
+            // console.log("updated data: ", payload);
         })
         .then((err) => {
             dispatch({ type: types.UPDATE_DATA_FAILURE, payload: err });
@@ -39,15 +39,25 @@ const updateData = (id, payload) => (dispatch) => {
 
 const deleteData = (id) => (dispatch) => {
     dispatch({ type: types.DELETE_REQUEST });
-    return axios.delete(`https://json-server-kappa-five.vercel.app/Calculator/${id}`)
+    return axios.delete(`https://awesome-products-backend.vercel.app/calculator/delete/${id}`)
         .then((res) => {
             dispatch({ type: types.DELETE_SUCCESS, payload: res.data });
-            console.log("deleted data: ", res.data);
         })
         .then((err) => {
             dispatch({ type: types.DELETE_FAILURE, payload: err });
         })
 };
 
+const getById = (id) => (dispatch) => {
+    dispatch({type: types.GET_BYID_REQUEST});
+    return axios.get(`https://awesome-products-backend.vercel.app/calculator/getById/${id}`)
+    .then((res) => {
+        dispatch({ type: types.DELETE_SUCCESS, payload: res.data });
+    })
+    .then((err) => {
+        dispatch({ type: types.DELETE_FAILURE, payload: err });
+    })
+}
 
-export { getData, addNewData, updateData, deleteData };
+
+export { getData, addNewData, updateData, deleteData, getById };
