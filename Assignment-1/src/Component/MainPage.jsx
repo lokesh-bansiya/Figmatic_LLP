@@ -1,16 +1,36 @@
 import "../Styles/MainPage.css";
 import circle from "../Assests/info.circle.png";
-import minus from "../Assests/minus.png";
-import plus from "../Assests/plus.png";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect} from "react";
+import { getData } from "../Redux/action";
+import { TableItem } from "./TableItem";
 
 const MainPage = () => {
+
+  const data = useSelector((store) => store.data);
+  const dispatch = useDispatch();
+  console.log("data in component", data);
+
+  useEffect(() => {
+    if (data.length === 0) {
+      dispatch(getData());
+    };
+  }, [data, data.length, dispatch]);
+
+  var total = 0;
+  const totalCount = (value) => {
+     total += value;
+  }
+
+  console.log("total", total);
+
   return (
     <div className="Container">
       <div className="firstChild">
         <div className="summary">
 
           <div className="pages">
-            <p className="five">5</p>
+            <p className="five">{data.length}</p>
             <p className="textwithfive">Pages</p>
           </div>
 
@@ -32,214 +52,69 @@ const MainPage = () => {
 
             <div className="frame90">
               <p className="subtotal">Sub Total</p>
-              <p className="doller800">$800</p>
+              <p className="doller800">${data.length > 0 ? total : 0}</p>
             </div>
-            
+
           </div>
         </div>
         <div className="line">
           <hr className="lineinside"></hr>
         </div>
         <table className="table">
-          <th className="theader">
-            <td className="td_pages td1">
+          <thead>
+          <tr className="theader">
+            <th className="td_pages td1">
               <span className="heading">Pages</span>
               <img className="headingIcon" src={circle} />
-            </td>
+            </th>
 
-            <td className="td_pages td2">
+            <th className="td_pages td2">
               <span className="heading">Design</span>
               <img className="headingIcon" src={circle} />
-            </td>
+            </th>
 
-            <td className="td_pages td2">
+            <th className="td_pages td2">
               <span className="heading">Interactions & Animations</span>
               <img className="headingIcon" src={circle} />
-            </td>
+            </th>
 
-            <td className="td_pages td2">
+            <th className="td_pages td2">
               <span className="heading">Integration</span>
               <img className="headingIcon" src={circle} />
-            </td>
+            </th>
 
-            <td className="td_pages td3 lastHeading">
+            <th className="td_pages td3 lastHeading">
               <span className="heading">Cost</span>
               <img className="headingIcon" src={circle} />
-            </td>
-          </th>
-          <tr className="tRow">
-            <td className="td1">
-              <span className="numbering">01.</span>
-              <span className="rowContent">Home</span>
-            </td>
+            </th>
 
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 complex large">Complex</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 Advanced large">Advanced</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 none small">None</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Cost td3">
-              <span className="frame72_200">$200</span>
-            </td>
+            <th className="td_pages td3 lastHeading">
+              <span className="heading">Delete</span>
+              <img className="headingIcon" src={circle} />
+            </th>
           </tr>
+          </thead>
+          <tbody>
+            {
+              data.length > 0 && data.map((el) => {
+                return (
+                  <TableItem
+                    key={el.id}
+                    page={el.page}
+                    id={el.id}
+                    price={el.price}
+                    interactions={el.interactions}
+                    design={el.design}
+                    integration={el.integration}
+                    designCount={el.designCount}
+                    interactionsCount={el.interactionsCount}
+                    integrationCount={el.integrationCount}
+                  />
+                )
+              })
+            }
+          </tbody>
 
-          <tr className="tRow">
-            <td className="td1">
-              <span className="numbering">02.</span>
-              <span className="rowContent">Service</span>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small2">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 small none">None</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Cost td3">
-              <span className="frame72_200">$200</span>
-            </td>
-          </tr>
-
-          <tr className="tRow">
-            <td className="td1">
-              <span className="numbering">03.</span>
-              <span className="rowContent">About Us</span>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 Advanced small2">Advanced</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 small none">None</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small2">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Cost td3">
-              <span className="frame72_200">$200</span>
-            </td>
-          </tr>
-
-          <tr className="tRow">
-            <td className="td1">
-              <span className="numbering">04.</span>
-              <span className="rowContent">Partners</span>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small2">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 small none">None</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Cost td3">
-              <span className="frame72_200">$200</span>
-            </td>
-          </tr>
-
-          <tr className="tRow">
-            <td className="td1">
-              <span className="numbering">05.</span>
-              <span className="rowContent">Contact Us</span>
-            </td>
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 complex large">Complex</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 small none">None</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Design td2">
-              <div className="Page_Slider">
-                <img className="minus" src={minus} alt="minus" />
-                <span className="frame78 basic small2">Basic</span>
-                <img className="plus" src={plus} alt="plus" />
-              </div>
-            </td>
-
-            <td className="td_Cost td3">
-              <span className="frame72_200">$200</span>
-            </td>
-          </tr>
         </table>
       </div>
     </div>
