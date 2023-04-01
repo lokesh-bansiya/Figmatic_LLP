@@ -3,14 +3,12 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 40px;
-
     position: relative;
     width: 90%;
-    /* height: 621px; */
-
     background: #c3e6cd;
     border-radius: 40px 40px 0px 0px;
     margin: auto;
+    margin-top: 2%;
 }
 
 .Container .firstChild {
@@ -18,22 +16,12 @@
 }
 
 .Container .firstChild .summary {
-    width: 100%;
+    width: 99%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-end;
     padding: 0px;
-
-    /* width: max-content;
-    border: 1px solid red;
-    height: 82px;
-
-
-    flex: none;
-    order: 0;
-    align-self: stretch;
-    flex-grow: 0; */
 }
 
 
@@ -42,24 +30,18 @@
     flex-direction: row;
     align-items: flex-end;
     padding: 0px;
-    gap: 10px;
+    gap: 5%;
 }
 
 .Container .firstChild .summary .pages .five {
-
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    /* font-size: 80px; */
-    /* line-height: 60px; */
     font-size: 300%;
     line-height: 90%;
-    /* identical to box height, or 75% */
-
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-
     color: #000000;
 }
 
@@ -68,24 +50,19 @@
     font-style: normal;
     font-weight: 700;
     font-size: 90%;
-    /* line-height: 100%; */
-    /* identical to box height */
-
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-
     color: #000000;
-
 }
 
 .Container .firstChild .summary .numbers {
     display: flex;
     width: 80%;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-end;
     padding: 0px;
+    height: 20%;
     gap: 0px;
 }
 
@@ -94,8 +71,8 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    justify-content: space-between;
     padding: 0px;
-
     width: 25%;
 }
 
@@ -106,13 +83,20 @@
     font-weight: 700;
     font-size: 100%;
     line-height: 100%;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-
+    margin-bottom: 2%;
     color: #000000;
+}
+
+.Container .firstChild .summary .numbers .extra100 {
+    margin-left: 15%;
+}
+
+
+.Container .firstChild .summary .numbers .extra200 {
+    margin-left: 5%;
 }
 
 
@@ -120,14 +104,11 @@
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
-    font-size: 90%;
+    font-size: 80%;
     line-height: 100%;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-
     color: #000000;
 }
 
@@ -138,7 +119,7 @@
     justify-content: flex-end;
     align-items: flex-end;
     padding: 0px;
-    gap: 10px;
+    gap: 1em;
     width: fit-content;
 }
 
@@ -148,15 +129,11 @@
     font-weight: 700;
     font-size: 80%;
     line-height: 100%;
-    /* identical to box height */
-
     display: flex;
     align-items: center;
     text-align: right;
     letter-spacing: -0.24px;
-
     color: #000000;
-
 }
 
 .doller800 {
@@ -165,29 +142,22 @@
     font-weight: 700;
     font-size: 200%;
     line-height: 100%;
-    /* identical to box height, or 67% */
-
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-
     color: #000000;
-
 }
-
-
 
 .line {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 40px 0px;
-    gap: 20px;
+    padding: 4% 0%;
     width: 100%;
 }
 
 .lineinside {
-    border: 2px solid #000000;
+    border: 1.7px solid #000000;
     transform: rotate(-0.2deg);
     width: 99.3%;
 }
@@ -198,7 +168,6 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 0px;
-    gap: 14px;
 }
 
 .table .theader {
@@ -208,52 +177,272 @@
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 40px;
-    border: 1px solid red;
+    gap: 1em;
 }
 
-.td_pages{
+.td_pages {
     display: flex;
-flex-direction: row;
-align-items: center;
-padding: 0px;
+    flex-direction: row;
+    align-items: center;
+    padding-bottom: 1%;
+    padding-left: 1%;
 }
 
-.heading{
+.lastHeading {
+    justify-content: right;
+}
+
+.heading {
     font-family: 'Inter';
     font-style: normal;
     font-weight: 700;
-    font-size: 20px;
-    line-height: 24px;
+    font-size: 80%;
+    line-height: 1.5em;
     display: flex;
     align-items: center;
     letter-spacing: -0.24px;
-    
     color: #000000;
 }
 
-.headingIcon{
+.headingIcon {
     font-family: 'SF Pro';
     font-style: normal;
     font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    /* identical to box height */
-    
     display: flex;
+    width: 13px;
+    margin-left: 1%;
     align-items: center;
     text-align: center;
-    
     color: #000000;
 }
 
 .table .tRow {
     display: flex;
+    width: 100%;
+    justify-content: space-between;
     flex-direction: row;
     align-items: center;
     padding: 0px;
-    gap: 40px;
+}
 
-    /* width: auto;
-    height: 56px; */
+
+.numbering {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 90%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+}
+
+
+.td1 {
+    width: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px;
+}
+
+
+.td2 {
+    width: 20%;
+}
+
+
+.td3 {
+    width: 10%;
+}
+
+
+.rowContent {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 90%;
+    line-height: 20px;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+    margin-left: 5%;
+    color: #000000;
+}
+
+.td_Design {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px;
+    width: 20%;
+    align-items: center;
+}
+
+.Page_Slider {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 0px;
+    width: 100%;
+    border-radius: 20px;
+    margin: 5%;
+    padding: 1% 5% 1% 5%;
+    background-color: white;
+    align-items: center;
+}
+
+.td_Cost {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0px;
+}
+
+.frame78 {
+    border-radius: 20px;
+    font-size: 80%;
+    font-family: 'SF Pro';
+    font-style: normal;
+    font-weight: 590;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #000000;
+}
+
+.small {
+    width: 30%;
+    padding: 2% 0% 2% 0%;
+    margin-right: 40%;
+}
+
+.large {
+    padding: 2%;
+    width: 80%;
+}
+
+.small2 {
+    width: 40%;
+    border-radius: 20px;
+    font-size: 80%;
+    padding: 2% 5% 2% 5%;
+    font-weight: 590;
+    font-family: 'SF Pro';
+    font-style: normal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 35%;
+}
+
+.none {
+    color: rgba(0, 0, 0, 0.2);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.basic {
+    background: #91D4A8;
+}
+
+
+.complex {
+    background-color: #F57F6C;
+
+}
+
+.Advanced {
+    background-color: #E9BE74;
+    color: #000000;
+    padding: 2%;
+}
+
+.plus {
+    width: 5%;
+    height: 20%;
+}
+
+.minus {
+    width: 5%;
+    height: 5%;
+}
+
+.frame72_200 {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 100%;
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.24px;
+    color: #000000;
+}
+
+
+@media all and (min-width: 500px) and (max-width: 1021px) {
+
+    .Container .firstChild .summary .pages .five {
+        font-size: 280%;
+        line-height: 90%;
+    }
+
+    .Container .firstChild .summary .pages .textwithfive {
+        font-size: 80%;
+    }
+
+    .Container .firstChild .summary .numbers .frame86 .text300 {
+        font-size: 80%;
+        line-height: 100%;
+    }
+
+    .Container .firstChild .summary .numbers .extra100 {
+        margin-left: 15%;
+    }
+
+    .Container .firstChild .summary .numbers .extra200 {
+        margin-left: 5%;
+    }
+
+
+    .Container .firstChild .summary .numbers .frame86 .pagedesign {
+        font-size: 60%;
+    }
+
+    .subtotal {
+        font-size: 70%;
+    }
+
+    .doller800 {
+        font-size: 180%;
+    }
+
+    .frame78 {
+        font-size: 60%;
+    }
+
+
+    .numbering {
+        font-size: 70%;
+    }
+
+
+    .rowContent {
+        font-size: 70%;
+    }
+
+    .heading {
+        font-size: 60%;
+    }
+
+    .headingIcon {
+        width: 8px;
+    }
+
+    .frame72_200 {
+        font-size: 90%;
+    }
+
 }
