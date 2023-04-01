@@ -11,27 +11,17 @@ import web6 from "../Assests/web6.jpg";
 import web7 from "../Assests/web7.jpg";
 import "../Styles/Card.css";
 
-
 const Cards = () => {
   return (
-    <Box className="Grid_Container" >
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+    <Box className="Grid_Container">
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(128, 128, 128, 0.473)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="green" />
-              <Text fontSize="70%" color="white">DRAFT</Text>
+              <Text fontSize="70%" color="white">
+                DRAFT
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -42,6 +32,7 @@ const Cards = () => {
             alt="img1"
           />
         </Box>
+
         <Box textAlign="left" padding="5%" color="gray.600">
           <Box>
             <Text fontWeight="bold" fontSize={{ base: "80%" }}>
@@ -53,7 +44,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -76,24 +67,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="gray" />
-              <Text fontSize="70%" color="white">ARCHIVED</Text>
+              <Text fontSize="70%" color="white">
+                ARCHIVED
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -115,7 +96,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -149,24 +130,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="red" />
-              <Text fontSize="70%" color="white">LIVE</Text>
+              <Text fontSize="70%" color="white">
+                LIVE
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -188,7 +159,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -197,7 +168,7 @@ const Cards = () => {
             </Box>
           </Box>
           <Box>
-          <Tag
+            <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
               fontSize="60%"
@@ -212,23 +183,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="red" />
-              <Text fontSize="70%" color="white">LIVE</Text>
+              <Text fontSize="70%" color="white">
+                LIVE
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -250,7 +212,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -259,7 +221,7 @@ const Cards = () => {
             </Box>
           </Box>
           <Box>
-          <Tag
+            <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
               fontSize="60%"
@@ -274,23 +236,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="green" />
-              <Text fontSize="70%" color="white">DRAFT</Text>
+              <Text fontSize="70%" color="white">
+                DRAFT
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -312,7 +265,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -321,7 +274,7 @@ const Cards = () => {
             </Box>
           </Box>
           <Box>
-          <Tag
+            <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
               fontSize="60%"
@@ -346,22 +299,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="red" />
-              <Text fontSize="70%" color="white">LIVE</Text>
+              <Text fontSize="70%" color="white">
+                LIVE
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -383,7 +328,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -392,7 +337,7 @@ const Cards = () => {
             </Box>
           </Box>
           <Box>
-          <Tag
+            <Tag
               borderRadius="5px"
               backgroundColor="rgba(128, 128, 128, 0.267)"
               fontSize="60%"
@@ -417,23 +362,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="red" />
-              <Text fontSize="70%" color="white">LIVE</Text>
+              <Text fontSize="70%" color="white">
+                LIVE
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -455,7 +391,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -478,23 +414,14 @@ const Cards = () => {
         </Box>
       </Box>
 
-
-      <Box className="ContainerBox" _hover={{cursor: "pointer"}}>
+      <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
         <Box className="FirstBox">
-          <Box
-            position="relative"
-            top="3%"
-            display="flex"
-            justifyContent="right"
-            padding="2%"
-          >
-            <Tag
-              borderRadius="0px"
-              backgroundColor="rgba(10, 9, 9, 0.399)"
-              size={"sm"}
-            >
+          <Box className="tag_box">
+            <Tag className="tag1" size={"sm"} backgroundColor="rgba(128, 128, 128, 0.473)">
               <GoPrimitiveDot color="red" />
-              <Text fontSize="70%" color="white">LIVE</Text>
+              <Text fontSize="70%" color="white">
+                LIVE
+              </Text>
             </Tag>
           </Box>
           <Image
@@ -516,7 +443,7 @@ const Cards = () => {
           </Box>
           <Box display="flex" justifyContent="left">
             <Box className="textBox">
-              <HiOutlineDocumentText className="Icons"/>
+              <HiOutlineDocumentText className="Icons" />
               <Text className="text1"> Lessons: 1</Text>
             </Box>
             <Box className="textBox">
@@ -538,7 +465,6 @@ const Cards = () => {
           </Box>
         </Box>
       </Box>
-
     </Box>
   );
 };

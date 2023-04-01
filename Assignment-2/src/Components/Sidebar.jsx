@@ -16,7 +16,7 @@ import "../Styles/Sidebar.css";
 
 const Sidebar = () => {
   return (
-    <Box  className="SidebarMainContainer">
+    <Box className="SidebarMainContainer">
       <Box height="100%">
         <Box
           padding={{ base: "2%" }}
@@ -32,18 +32,7 @@ const Sidebar = () => {
           display="flex"
           flexDirection="column"
         >
-          <Box
-            width="80%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            display="flex"
-            fontWeight="bold"
-            padding="3%"
-            justifyContent="left"
-            alignItems="center"
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <FaHome fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -58,18 +47,7 @@ const Sidebar = () => {
               DASHBOARD
             </Text>
           </Box>
-          <Box
-            display="flex"
-            fontWeight="bold"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <HiOutlineAcademicCap fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -84,18 +62,7 @@ const Sidebar = () => {
               KNOWLEDGE
             </Text>
           </Box>
-          <Box
-            display="flex"
-            fontWeight="bold"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }} >
             <MdPeopleAlt fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -110,18 +77,7 @@ const Sidebar = () => {
               MEMEBERS
             </Text>
           </Box>
-          <Box
-            display="flex"
-            fontWeight="bold"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <BsMicrosoftTeams fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -136,18 +92,7 @@ const Sidebar = () => {
               TEAMS
             </Text>
           </Box>
-          <Box
-            display="flex"
-            fontWeight="bold"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }} >
             <CiVault fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -162,18 +107,7 @@ const Sidebar = () => {
               VAULT
             </Text>
           </Box>
-          <Box
-            display="flex"
-            fontWeight="bold"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <BsChatSquareTextFill fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -192,20 +126,7 @@ const Sidebar = () => {
       </Box>
       <Box>
         <Box padding={{ base: "6%" }} borderBottom="1px solid gray">
-          <Box
-            margin={{ base: "5%" }}
-            fontWeight="bold"
-            display="flex"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            alignItems="center"
-            paddingLeft="5%"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }} >
             <TbSettings fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -220,20 +141,7 @@ const Sidebar = () => {
               SETTINGS
             </Text>
           </Box>
-          <Box
-            margin={{ base: "5%" }}
-            fontWeight="bold"
-            display="flex"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            paddingLeft="5%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <RiBuildingLine fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -248,20 +156,7 @@ const Sidebar = () => {
               COMPANY
             </Text>
           </Box>
-          <Box
-            margin={{ base: "5%" }}
-            fontWeight="bold"
-            display="flex"
-            justifyContent="left"
-            width="80%"
-            padding="3%"
-            _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}
-            marginLeft="auto"
-            marginRight="auto"
-            marginBottom="2%"
-            paddingLeft="5%"
-            alignItems="center"
-          >
+          <Box className="listItems" _hover={{ backgroundColor: "#5d5b63", cursor: "pointer" }}>
             <BsPersonCircle fontSize="100%" />
             <Text
               marginLeft={{ base: "10%" }}
@@ -280,13 +175,13 @@ const Sidebar = () => {
         </Box>
         <Box>
           <Text margin="3%" fontSize={{
-                base: "0.5em",
-                sm: "0.5em",
-                md: "0.5em%",
-                lg: "0.5em",
-                xl: "0.6em",
-              }}
-              >Powered By Team</Text>
+            base: "0.5em",
+            sm: "0.5em",
+            md: "0.5em%",
+            lg: "0.5em",
+            xl: "0.6em",
+          }}
+          >Powered By Team</Text>
         </Box>
       </Box>
     </Box>

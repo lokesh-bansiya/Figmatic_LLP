@@ -33,6 +33,19 @@
     margin-right: 5%;
 }
 
+.tag_box{
+    position: relative;
+    top: 3%;
+    display: flex;
+    justify-content: right;
+    padding: 2%;
+}
+
+.tag1{
+    border-radius: 0px;
+}
+
+
 @media all and (min-width: 1851px) and (max-width: 2135px) {
     .Grid_Container{
         grid-template-columns: repeat(4, 1fr);
