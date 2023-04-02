@@ -13,9 +13,10 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
 
     const plusHandler = (_id, value) => {
         if (value === "design") {
-            var change = designCount = designCount + 1;
-            console.log("design", change);
-            if (change <= 3) {
+            
+            if (designCount < 3) {
+                var change = designCount = designCount + 1;
+                console.log("design", change);
                 var payload = {
                     page,
                     design,
@@ -40,7 +41,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 borderRadius="6px"
                                 fontWeight="500"
                                 color="green"
-                                fontSize={{ base: "80%", sm: "80%", md: "85%", lg: "90%", xl: "100%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
@@ -52,9 +53,10 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
             }
         }
         else if (value === "interactions") {
-            var change = interactionsCount = interactionsCount + 1;
-            console.log("interactionsCount", change);
-            if (change <= 3) {
+            
+            if (interactionsCount < 3) {
+                var change = interactionsCount = interactionsCount + 1;
+                console.log("interactionsCount", change);
                 var payload = {
                     page,
                     design,
@@ -78,7 +80,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                fontSize={{ base: "60%", sm: "60%", md: "75%", lg: "80%", xl: "90%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 color="green"
                                 p={3}
                                 bg="#c3e6cd"
@@ -91,9 +93,9 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
             }
         }
         else {
-            var change = integrationCount = integrationCount + 1;
-            console.log("integrationCount ", change);
-            if (change <= 3) {
+            if (integrationCount < 3) {
+                var change = integrationCount = integrationCount + 1;
+                console.log("integrationCount ", change);
                 var payload = {
                     page,
                     design,
@@ -118,7 +120,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 borderRadius="6px"
                                 fontWeight="500"
                                 color="green"
-                                fontSize={{ base: "80%", sm: "80%", md: "85%", lg: "90%", xl: "100%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
@@ -160,7 +162,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 borderRadius="6px"
                                 fontWeight="500"
                                 color="green"
-                                fontSize={{ base: "80%", sm: "80%", md: "85%", lg: "90%", xl: "100%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
@@ -200,7 +202,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 borderRadius="6px"
                                 fontWeight="500"
                                 color="green"
-                                fontSize={{ base: "80%", sm: "80%", md: "85%", lg: "90%", xl: "100%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
@@ -240,7 +242,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                                 borderRadius="6px"
                                 fontWeight="500"
                                 color="green"
-                                fontSize={{ base: "80%", sm: "80%", md: "85%", lg: "90%", xl: "100%" }}
+                                fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
