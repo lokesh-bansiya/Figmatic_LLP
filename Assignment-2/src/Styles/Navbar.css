@@ -1,0 +1,25 @@
+.Navbar_second_child{
+    /* marginRight={{base: "0%",sm:"20%", md:"20%", lg:"15%", xl:"16%"}} display="flex" justifyContent="right" alignItems="center" */
+    margin-right: 16%;
+    display: flex;
+    align-items: center;
+    justify-content: right;
+}
+
+@media all and (min-width: 651px) and (max-width: 950px) {
+    .Navbar_second_child{
+        margin-right: 20%;
+    }
+}
+
+@media all and (min-width: 636px) and (max-width: 650px) {
+    .Navbar_second_child{
+        margin-right: 22%;
+    }
+}
+
+@media all and (min-width: 280px) and (max-width: 635px) {
+    .Navbar_second_child{
+        margin-right: 0%;
+    }
+}

@@ -1,0 +1,76 @@
+{
+    "dashboardData": [
+        {
+            "img": "https://cdn.pixabay.com/photo/2021/08/04/13/06/software-developer-6521720__340.jpg",
+            "status": "ARCHIVED",
+            "title": "XYZ",
+            "lesson": 1,
+            "minute": 13,
+            "last_update": "4/08/22",
+            "tag": ["Marketing", "Sales"]
+        },
+        {
+            "img": "https://www.simplilearn.com/ice9/free_resources_article_thumb/tester-or-developer-what-suits-you-the-most.jpg",
+            "status": "DRAFT",
+            "title": "Sales vs Marketing",
+            "lesson": 2,
+            "minute": 10,
+            "last_update": "10/08/22",
+            "tag": ["Sales"]
+        },
+        {
+            "img": "https://images.unsplash.com/photo-1533750516457-a7f992034fec?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fG1hcmtldGluZ3xlbnwwfHwwfHw%3D&w=1000&q=80",
+            "status": "LIVE",
+            "title": "Google Analytics",
+            "lesson": 9,
+            "minute": 30,
+            "last_update": "10/08/22",
+            "tag": ["Sales"]
+        },
+        {
+            "img": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9GYn7Mrq8oG-39LnNmiKWJXw3bL16CqRiIc2sXrHk3UtXHKEr4qRT8dVrtCrv1aEiKC0&usqp=CAU",
+            "status": "DRAFT",
+            "title": "How to Unclog a sink",
+            "lesson": 4,
+            "minute": 9,
+            "last_update": "10/08/22",
+            "tag": ["Marketing"]
+        },
+        {
+            "img": "https://assets.entrepreneur.com/content/3x2/2000/20191112054904-FotoJet32.jpeg",
+            "status": "LIVE",
+            "title": "Compilance Training",
+            "lesson": 2,
+            "minute": 10,
+            "last_update": "10/08/22",
+            "tag": ["Marketing", "sales"]
+        },
+        {
+            "img": "https://im.indiatimes.in/facebook/2015/Jan/bargaining-1_1421305864_1421305886.jpg?w=820&h=540&cc=1",
+            "status": "LIVE",
+            "title": "Top Tips to Bargaining",
+            "lesson": 2,
+            "minute": 10,
+            "last_update": "10/08/22",
+            "tag": ["Sales"]
+        },
+        {
+            "img": "https://www.hashmicro.com/blog/wp-content/uploads/2021/09/3-contoh-marketing-plan-Cocok-untuk-semua-bisnis-1.jpg",
+            "status": "ARCHIVED",
+            "title": "Social Media Marketing",
+            "lesson": 7,
+            "minute": 20,
+            "last_update": "10/08/22",
+            "tag": ["Marketing", "Sales"]
+        },
+        {
+            "img": "https://cdn.shopify.com/s/files/1/0070/7032/files/MarketingPlanEx_resized-583690554.jpg?v=1636567942",
+            "status": "DRAFT",
+            "title": "Marketing",
+            "lesson": 5,
+            "minute": 50,
+            "last_update": "15/09/22",
+            "tag": ["Marketing"]
+        }
+    ]
+}

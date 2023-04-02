@@ -2,6 +2,7 @@ import { Box, Text } from "@chakra-ui/react";
 import { HiDotsVertical } from "react-icons/hi";
 import { ProfileMenu } from "../Menu/ProfileMenu";
 import { CreateCourse } from "../Modal/CreateCourse";
+import "../Styles/Navbar.css";
 
 const Navbar = () => {
   return (
@@ -34,7 +35,7 @@ const Navbar = () => {
           KNOWLEDGE
         </Text>
       </Box>
-      <Box marginRight={{base: "0%", md:"20%", lg:"15%", xl:"16%"}} display="flex" justifyContent="right" alignItems="center">
+      <Box className="Navbar_second_child">
         <Box marginRight={{base: "3%"}}>
             <CreateCourse/>
         </Box>

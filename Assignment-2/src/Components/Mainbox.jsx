@@ -3,8 +3,26 @@ import { Cards } from "./Cards";
 import { Navbar } from "./Navbar";
 import "../Styles/MainBox.css";
 import { MenuDrawer } from "../Drawer/MenuDrawer";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getDashboardData } from "../Redux/action";
 
 const Mainbox = () => {
+
+  const dashboardData = useSelector(store => store.dashboardData);
+  const dispatch = useDispatch();
+
+  const handleChange = (value) => {
+    console.log(value)
+    dispatch(getDashboardData(value));
+  }
+
+  useEffect(() => {
+    if (dashboardData.length === 0) {
+      dispatch(getDashboardData());
+    }
+  }, [dashboardData]);
+
   return (
     <Box className="MainBoxContainer" >
       <Navbar />
@@ -14,13 +32,11 @@ const Mainbox = () => {
         flexDirection="row"
         alignItems="center"
         width="100%"
-        padding={{base: "2.5%", md:"1%"}}
-        paddingTop={{base: "25%", md:"10%",lg:"9%", xl:"9%"}}
-        
-        // border="1px solid red"
+        padding={{ base: "2.5%", md: "1%" }}
+        paddingTop={{ base: "25%", md: "10%", lg: "9%", xl: "9%" }}
       >
         <Box
-          width={{ base: "65%", sm:"60%", md: "35%", lg: "30%", xl: "30%" }}
+          width={{ base: "65%", sm: "60%", md: "35%", lg: "30%", xl: "30%" }}
           display="flex"
           flexDirection="row"
           alignItems="center"
@@ -34,31 +50,39 @@ const Mainbox = () => {
             lg: "0.7em",
             xl: "1em",
           }}
-          // paddingTop="2%"
-          // border="1px solid red"
         >
-          <Text className="MenuBar"><MenuDrawer/></Text>
-          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ALL</Text>
-          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>LIVE</Text>
-          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>DRAFT</Text>
-          <Text _hover={{textDecoration: "underline", cursor: "pointer"}}>ARCHIVED</Text>
+          <Text className="MenuBar"><MenuDrawer /></Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData())}>ALL</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("LIVE"))}>LIVE</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("DRAFT"))}>DRAFT</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("ARCHIVED"))}>ARCHIVED</Text>
         </Box>
-        <Box width={{ base: "35%", sm:"30%", md: "25%", lg: "20%", xl: "20%" }} >
-          <select className="selectBox" style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", padding: "1%",}}>
-            <option value="">Select team</option>
-            <option value="">Option-1</option>
-            <option value="">Option-2</option>
-            <option value="">Option-3</option>
-            <option value="">Option-4</option>
-            <option value="">Option-5</option>
-            <option value="">Option-6</option>
-            <option value="">Option-7</option>
-            <option value="">Option-8</option>
+        <Box width={{ base: "35%", sm: "30%", md: "25%", lg: "20%", xl: "20%" }} >
+          <select onChange={(e) => handleChange(e.target.value)} className="selectBox" style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", padding: "1%", }} placeholder="Select Team">
+            <option>Select team</option>
+            <option value="Marketing">Marketing</option>
+            <option value="Sales">Sales</option>
           </select>
         </Box>
       </Box>
-      <Box>
-          <Cards/>
+      <Box className="Grid_Container">
+        {
+          dashboardData.length > 0 && dashboardData.map((el) => {
+            return (
+              <Cards
+                key={ el._id }
+                id={el._id}
+                img={el.img}
+                last_update={el.last_update}
+                lesson={el.lesson}
+                minute={el.minute}
+                status={el.status}
+                tag={el.tag}
+                title={el.title}
+              />
+            )
+          })
+        }
       </Box>
     </Box>
   );
