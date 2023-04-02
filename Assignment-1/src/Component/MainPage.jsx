@@ -1,8 +1,8 @@
 import "../Styles/MainPage.css";
 import circle from "../Assests/info.circle.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo, useState } from "react";
-import { getData } from "../Redux/action";
+import { useEffect, useState } from "react";
+import { getData } from"../Redux/action";
 import { TableItem } from "./TableItem";
 import { AddNewData } from "../Modal/AddData";
 import { Pagination } from "./Pagination";
@@ -12,41 +12,32 @@ const MainPage = () => {
 
   const products = useSelector((store) => store.data);
   const count = useSelector((store) => store.count);
+  const totalSum = useSelector(store => store.totalSum);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
-
-  // console.log(count);
 
   const handlePageChange = (n) => {
     setPage((init) => init + n);
   };
 
-
   useEffect(() => {
-    dispatch(getData(page, 2));
+    dispatch(getData(page));
   }, [dispatch, page]);
 
 
   useEffect(() => {
     if (products.length === 0) {
-      dispatch(getData(page, 5));
+      dispatch(getData(page));
       console.log(page)
     };
   }, [products, products.length, dispatch, page]);
-
-
-  const sum = useMemo(() => {
-    return products.reduce((sum, el) => {
-      return sum + el.price[el.designCount] + el.price[el.integrationCount] + el.price[el.interactionsCount]
-    }, 0)
-  }, [products]);
 
   return (
     <>
 
       <div className="Container">
         <div className="button">
-          <AddNewData />
+          <AddNewData pageno={page}/>
         </div>
         <div className="firstChild">
           <div className="summary">
@@ -74,7 +65,7 @@ const MainPage = () => {
 
               <div className="frame90">
                 <p className="subtotal">Sub Total</p>
-                <p className="doller800">${products.length > 0 ? sum : 0}</p>
+                <p className="doller800">${products.length > 0 ? totalSum : 0}</p>
               </div>
 
             </div>

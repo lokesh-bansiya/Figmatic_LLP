@@ -1,7 +1,7 @@
-import { Box, Button } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 
 const Pagination = ({ onChange, page, total }) => {
-    console.log("page", page);
+
     const previous = (
         <button
             style={{

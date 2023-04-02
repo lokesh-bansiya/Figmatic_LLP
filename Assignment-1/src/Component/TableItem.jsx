@@ -12,8 +12,8 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
     const toast = useToast();
 
     const plusHandler = (_id, value) => {
+    
         if (value === "design") {
-            
             if (designCount < 3) {
                 var change = designCount = designCount + 1;
                 console.log("design", change);
@@ -28,7 +28,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno,5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -40,7 +40,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                color="green"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
@@ -68,7 +67,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno,5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -81,7 +80,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 borderRadius="6px"
                                 fontWeight="500"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
-                                color="green"
                                 p={3}
                                 bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
@@ -107,7 +105,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount: change,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno,5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -119,7 +117,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                color="green"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
@@ -149,7 +146,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno,5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -161,7 +158,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                color="green"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
@@ -189,7 +185,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno, 5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -201,7 +197,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                color="green"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
@@ -229,7 +224,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                     integrationCount: change,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData(pageno, 5)))
+                    .then(() => dispatch(getData(pageno)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -241,7 +236,6 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
                                 textAlign="center"
                                 borderRadius="6px"
                                 fontWeight="500"
-                                color="green"
                                 fontSize={{ base: "80%", sm: "80%", md: "95%", lg: "100%", xl: "130%" }}
                                 p={3}
                                 bg="#c3e6cd"
@@ -292,7 +286,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
             </td>
 
             <td className="td_Cost td3">
-                <Confirm key={_id} id={_id} page={page} />
+                <Confirm key={_id} id={_id} page={page} pageno={pageno}/>
             </td>
         </tr>
     );

@@ -3,6 +3,7 @@ import * as types from "./actionTypes";
 const prevState = {
     data: [],
     count: 0,
+    totalSum:0,
     isLoading: false,
     isError: false,
 };
@@ -22,7 +23,8 @@ const reducer = (state = prevState, action) => {
                 ...state,
                 isLoading: false,
                 data: payload.products,
-                count: payload.count
+                count: payload.count,
+                totalSum: payload.sum
             };
         case types.GET_DATA_FAILURE:
             return {

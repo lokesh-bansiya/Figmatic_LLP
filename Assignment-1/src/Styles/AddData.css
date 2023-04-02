@@ -1,0 +1,16 @@
+.inputbox {
+    color: inherit;
+    background-color: inherit;
+    border-bottom: 1px solid black;
+    width: 100%;
+    color: white;
+}
+
+.inputbox:focus {
+    outline: none;
+}
+
+.inputbox::placeholder {
+    color: rgb(185, 185, 185);
+    opacity: 1;
+}

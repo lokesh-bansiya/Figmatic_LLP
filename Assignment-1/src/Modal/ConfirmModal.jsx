@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { deleteData, getData } from "../Redux/action";
 import { DeleteIcon } from "@chakra-ui/icons";
 
-const Confirm = ({ id, page }) => {
+const Confirm = ({ id, page, pageno }) => {
 
     const dispatch = useDispatch();
     const toast = useToast();
@@ -14,7 +14,7 @@ const Confirm = ({ id, page }) => {
 
     const deleteHandler = (_id) => {
         dispatch(deleteData(_id))
-            .then(() => dispatch(getData()))
+            .then(() => dispatch(getData(pageno)))
             .then(() => toast({
                 status: "success",
                 duration: 2000,
@@ -35,8 +35,7 @@ const Confirm = ({ id, page }) => {
                         {`${page} page successfully deleted !`}
                     </Box>
                 ),
-            })
-            )
+            }))
     }
 
     return (
@@ -58,7 +57,7 @@ const Confirm = ({ id, page }) => {
                 <ModalOverlay />
                 <ModalContent backgroundColor="#02ccb8">
                     <ModalHeader color="red.700">Warning!!!</ModalHeader>
-                    <ModalCloseButton  outline={'none'} />
+                    <ModalCloseButton outline={'none'} />
                     <ModalBody pb={6}>
                         <Text fontSize={{ base: "70%", sm: "80%", md: "80%", lg: "90%", xl: "90%" }} fontWeight="bold">{`Would you like to delete ${page} page!`} </Text>
                     </ModalBody>

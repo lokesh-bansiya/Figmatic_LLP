@@ -1,7 +1,8 @@
-import { Box, Button, FormControl, Input, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react";
+import { Box, Button, FormControl, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, useDisclosure, useToast } from "@chakra-ui/react";
 import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { addNewData, getData } from "../Redux/action";
+import "../Styles/AddData.css";
 
 const initialState = {
     page: "",
@@ -67,7 +68,7 @@ const dataReducer = (state, action) => {
     }
 };
 
-const AddNewData = () => {
+const AddNewData = ({pageno}) => {
 
     const [dataState, setDataState] = useReducer(dataReducer, initialState);
     const dispatch = useDispatch();
@@ -78,10 +79,9 @@ const AddNewData = () => {
 
 
     const addDataHandler = () => {
-        // console.log(dataState);
         if (dataState.page !== "") {
             dispatch(addNewData(dataState))
-                .then(() => dispatch(getData()))
+                .then(() => dispatch(getData(pageno)))
                 .then(() =>
                     toast({
                         title: "Data !",
@@ -159,7 +159,7 @@ const AddNewData = () => {
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl>
-                            <Input color="inherit" bg="inherit" opacity={1} variant='flushed' value={dataState.page} placeholder='Page Name' _placeholder={{ color: "white" }} _focus={{ color: "inherit", bg: "inherit" }} onChange={(e) => setDataState({ type: "page", payload: e.target.value })} />
+                            <input className="inputbox" value={dataState.page} placeholder='Page Name' onChange={(e) => setDataState({ type: "page", payload: e.target.value })}/>
                         </FormControl>
                     </ModalBody>
 
