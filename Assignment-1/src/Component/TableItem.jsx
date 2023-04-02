@@ -6,7 +6,7 @@ import { getData, updateData } from "../Redux/action";
 import { Box, useToast } from "@chakra-ui/react";
 import { Confirm } from "../Modal/ConfirmModal";
 
-const TableItem = ({ page, index, price, interactions, design, integration, designCount, interactionsCount, integrationCount, _id }) => {
+const TableItem = ({ page,pageno,count, index, price, interactions, design, integration, designCount, interactionsCount, integrationCount, _id }) => {
 
     const dispatch = useDispatch();
     const toast = useToast();
@@ -28,7 +28,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno,5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -68,7 +68,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno,5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -107,7 +107,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount: change,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno,5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -149,7 +149,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno,5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -189,7 +189,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno, 5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,
@@ -229,7 +229,7 @@ const TableItem = ({ page, index, price, interactions, design, integration, desi
                     integrationCount: change,
                 }
                 dispatch(updateData(_id, payload))
-                    .then(() => dispatch(getData()))
+                    .then(() => dispatch(getData(pageno, 5)))
                     .then(() => toast({
                         status: "success",
                         duration: 2000,

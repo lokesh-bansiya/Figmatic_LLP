@@ -2,6 +2,7 @@ import * as types from "./actionTypes";
 
 const prevState = {
     data: [],
+    count: 0,
     isLoading: false,
     isError: false,
 };
@@ -20,7 +21,8 @@ const reducer = (state = prevState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                data: payload,
+                data: payload.products,
+                count: payload.count
             };
         case types.GET_DATA_FAILURE:
             return {

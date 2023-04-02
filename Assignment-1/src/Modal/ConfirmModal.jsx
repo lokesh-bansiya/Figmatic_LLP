@@ -58,7 +58,7 @@ const Confirm = ({ id, page }) => {
                 <ModalOverlay />
                 <ModalContent backgroundColor="#02ccb8">
                     <ModalHeader color="red.700">Warning!!!</ModalHeader>
-                    <ModalCloseButton />
+                    <ModalCloseButton  outline={'none'} />
                     <ModalBody pb={6}>
                         <Text fontSize={{ base: "70%", sm: "80%", md: "80%", lg: "90%", xl: "90%" }} fontWeight="bold">{`Would you like to delete ${page} page!`} </Text>
                     </ModalBody>

@@ -1,28 +1,45 @@
 import "../Styles/MainPage.css";
 import circle from "../Assests/info.circle.png";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getData } from "../Redux/action";
 import { TableItem } from "./TableItem";
 import { AddNewData } from "../Modal/AddData";
+import { Pagination } from "./Pagination";
+import { Box } from "@chakra-ui/react";
 
 const MainPage = () => {
 
-  const data = useSelector((store) => store.data);
+  const products = useSelector((store) => store.data);
+  const count = useSelector((store) => store.count);
+  const [page, setPage] = useState(1);
   const dispatch = useDispatch();
 
+  // console.log(count);
+
+  const handlePageChange = (n) => {
+    setPage((init) => init + n);
+  };
+
+
   useEffect(() => {
-    if (data.length === 0) {
-      dispatch(getData());
+    dispatch(getData(page, 2));
+  }, [dispatch, page]);
+
+
+  useEffect(() => {
+    if (products.length === 0) {
+      dispatch(getData(page, 5));
+      console.log(page)
     };
-  }, [data, data.length, dispatch]);
+  }, [products, products.length, dispatch, page]);
 
 
-  const total = useMemo(() => {
-    return data.reduce((sum, el) => {
+  const sum = useMemo(() => {
+    return products.reduce((sum, el) => {
       return sum + el.price[el.designCount] + el.price[el.integrationCount] + el.price[el.interactionsCount]
     }, 0)
-  }, [data]);
+  }, [products]);
 
   return (
     <>
@@ -35,7 +52,7 @@ const MainPage = () => {
           <div className="summary">
 
             <div className="pages">
-              <p className="five">{data.length}</p>
+              <p className="five">{count}</p>
               <p className="textwithfive">Pages</p>
             </div>
 
@@ -57,7 +74,7 @@ const MainPage = () => {
 
               <div className="frame90">
                 <p className="subtotal">Sub Total</p>
-                <p className="doller800">${data.length > 0 ? total : 0}</p>
+                <p className="doller800">${products.length > 0 ? sum : 0}</p>
               </div>
 
             </div>
@@ -101,7 +118,7 @@ const MainPage = () => {
             </thead>
             <tbody>
               {
-                data.length > 0 && data.map((el, i) => {
+                products.length > 0 && products.map((el, i) => {
                   return (
                     <TableItem
                       key={el._id}
@@ -115,6 +132,8 @@ const MainPage = () => {
                       designCount={el.designCount}
                       interactionsCount={el.interactionsCount}
                       integrationCount={el.integrationCount}
+                      pageno={page}
+                      count={count}
                     />
                   )
                 })
@@ -122,6 +141,13 @@ const MainPage = () => {
             </tbody>
 
           </table>
+          <Box>
+            <Pagination
+              onChange={handlePageChange}
+              page={page}
+              total={count}
+            />
+          </Box>
         </div>
       </div>
     </>

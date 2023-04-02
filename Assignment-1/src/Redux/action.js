@@ -1,9 +1,9 @@
 import axios from "axios";
 import * as types from "./actionTypes";
 
-const getData = () => (dispatch) => {
+const getData = (page, limit) => (dispatch) => {
     dispatch({ type: types.GET_DATA_REQUEST });
-    return axios.get(`https://awesome-products-backend.vercel.app/calculator`)
+    return axios.get(`https://awesome-products-backend.vercel.app/calculator?page=${page}&limit=5`)
         .then((res) => {
             dispatch({ type: types.GET_DATA_SUCCESS, payload: res.data });
         })
