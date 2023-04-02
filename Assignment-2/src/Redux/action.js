@@ -1,12 +1,12 @@
 import axios from "axios";
 import * as types from "./actionTypes";
 
-const getDashboardData = (value) => (dispatch) => {
+const getDashboardData = (page, value) => (dispatch) => {
     dispatch({ type: types.GET_DASHBOARD_DATA_REQUEST });
 
     if(value === "LIVE" || value === "DRAFT" || value === "ARCHIVED")
     {
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?status=${value}`)
+        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?page=${page}&limit=12&status=${value}`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -16,7 +16,7 @@ const getDashboardData = (value) => (dispatch) => {
     }
     else if(value === "Marketing" || value === "Sales")
     {
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?tag=${value}`)
+        return axios.get(`https://awesome-products-backend.vercel.app/dashboard??page=${page}&limit=12&tag=${value}`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -25,7 +25,7 @@ const getDashboardData = (value) => (dispatch) => {
         })
     }
     else{
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard`)
+        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?page=${page}&limit=12&`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })

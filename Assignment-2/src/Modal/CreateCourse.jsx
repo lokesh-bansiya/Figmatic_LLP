@@ -19,11 +19,11 @@ import { useDispatch } from "react-redux";
 import { addNewDashboardData, getDashboardData } from "../Redux/action";
 
 const initialState = {
-    img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuN8WGodi-PXK1jYi8uKZdJT2nfhm_mGYMOA&usqp=CAU",
+    img: "",
     status: "",
     title: "",
-    lesson: 0,
-    minute: 0,
+    lesson: "",
+    minute: "",
     last_update: "",
     tag: [],
 };
@@ -57,7 +57,7 @@ const dashboardReducer = (state, action) => {
         case "minute":
             return {
                 ...state,
-                minute: action.payload,
+                minute: Number(action.payload),
             };
         case "last_update":
             return {
@@ -76,7 +76,7 @@ const dashboardReducer = (state, action) => {
     }
 };
 
-const CreateCourse = () => {
+const CreateCourse = ({page}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
@@ -89,6 +89,7 @@ const CreateCourse = () => {
 
 
     const addHandler = () => {
+        console.log(dashboardState);
         if (dashboardState.img !== "" &&
             dashboardState.title !== "" &&
             dashboardState.status !== "" &&
@@ -96,7 +97,7 @@ const CreateCourse = () => {
             dashboardState.lesson !== 0 &&
             dashboardState.last_update !== "") {
             dispatch(addNewDashboardData(dashboardState))
-                .then(() => dispatch(getDashboardData()))
+                .then(() => dispatch(getDashboardData(page,"")))
                 .then(() =>
                     toast({
                         title: "Data !",
@@ -211,7 +212,7 @@ const CreateCourse = () => {
                                 variant="flushed"
                                 value={dashboardState.lesson}
                                 placeholder="Course lesson"
-                                type="number"
+                                type="text"
                                 onChange={(e) => setDashboardState({ type: "lesson", payload: Number(e.target.value) })}
                             />
                         </FormControl>
@@ -221,8 +222,8 @@ const CreateCourse = () => {
                                 variant="flushed"
                                 value={dashboardState.minute}
                                 placeholder="Course Duration"
-                                type="number"
-                                onChange={(e) => setDashboardState({ type: "minute", payload: e.target.value })}
+                                type="text"
+                                onChange={(e) => setDashboardState({ type: "minute", payload: Number(e.target.value) })}
                             />
                         </FormControl>
 

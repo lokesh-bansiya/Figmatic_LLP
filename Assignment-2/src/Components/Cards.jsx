@@ -1,18 +1,12 @@
-import { Box, Button, Image, Tag, Text, useToast } from "@chakra-ui/react";
+import { Box, Image, Tag, Text } from "@chakra-ui/react";
 import { AiOutlineClockCircle } from "react-icons/ai";
 import { HiOutlineDocumentText } from "react-icons/hi";
 import { GoPrimitiveDot } from "react-icons/go";
 import "../Styles/Card.css";
-import { useDispatch } from "react-redux";
-import { deleteDashboardData, getDashboardData } from "../Redux/action";
 import { ConfirmBox } from "../Modal/ConfirmBox";
 
-const Cards = ({ id, img, last_update, lesson, minute, status, tag, title }) => {
+const Cards = ({ id,page, img, last_update, lesson, minute, status, tag, title }) => {
 
-  const dispatch = useDispatch();
-  const toast = useToast();
-
-  
   return (
     <>
       <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
@@ -55,9 +49,10 @@ const Cards = ({ id, img, last_update, lesson, minute, status, tag, title }) => 
           </Box>
           <Box>
             {
-              tag.map((el) => {
+              tag.map((el,i) => {
                 return (
                   <Tag
+                    key={i}
                     borderRadius="5px"
                     backgroundColor="rgba(128, 128, 128, 0.267)"
                     fontSize="60%"
@@ -73,7 +68,7 @@ const Cards = ({ id, img, last_update, lesson, minute, status, tag, title }) => 
             }
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" padding="1%">
-            <ConfirmBox key={id} id={id}/>
+            <ConfirmBox key={id} id={id} page={page}/>
           </Box>
         </Box>
       </Box>

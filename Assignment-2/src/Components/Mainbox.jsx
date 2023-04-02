@@ -4,24 +4,37 @@ import { Navbar } from "./Navbar";
 import "../Styles/MainBox.css";
 import { MenuDrawer } from "../Drawer/MenuDrawer";
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getDashboardData } from "../Redux/action";
+import { Pagination } from "./Pagination";
 
 const Mainbox = () => {
 
   const dashboardData = useSelector(store => store.dashboardData);
+  const totalCount = useSelector(store=> store.totalCount);
   const dispatch = useDispatch();
+  const [page, setPage] = useState(1);
+
+  console.log("totalCount", totalCount);
+  
+  const handlePageChange = (n) => {
+    setPage((init) => init + n);
+  };
 
   const handleChange = (value) => {
-    console.log(value)
-    dispatch(getDashboardData(value));
+    dispatch(getDashboardData(page, value));
   }
 
   useEffect(() => {
     if (dashboardData.length === 0) {
-      dispatch(getDashboardData());
+      dispatch(getDashboardData(page,""));
     }
-  }, [dashboardData]);
+  }, [dashboardData, dashboardData.length, dispatch,page]);
+
+  
+  useEffect(() => {
+    dispatch(getDashboardData(page,""));
+  }, [dispatch, page]);
 
   return (
     <Box className="MainBoxContainer" >
@@ -52,10 +65,10 @@ const Mainbox = () => {
           }}
         >
           <Text className="MenuBar"><MenuDrawer /></Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData())}>ALL</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("LIVE"))}>LIVE</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("DRAFT"))}>DRAFT</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData("ARCHIVED"))}>ARCHIVED</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,""))}>ALL</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"LIVE"))}>LIVE</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"DRAFT"))}>DRAFT</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"ARCHIVED"))}>ARCHIVED</Text>
         </Box>
         <Box width={{ base: "35%", sm: "30%", md: "25%", lg: "20%", xl: "20%" }} >
           <select onChange={(e) => handleChange(e.target.value)} className="selectBox" style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", padding: "1%", }} placeholder="Select Team">
@@ -70,7 +83,7 @@ const Mainbox = () => {
           dashboardData.length > 0 && dashboardData.map((el) => {
             return (
               <Cards
-                key={ el._id }
+                key={el._id}
                 id={el._id}
                 img={el.img}
                 last_update={el.last_update}
@@ -79,10 +92,18 @@ const Mainbox = () => {
                 status={el.status}
                 tag={el.tag}
                 title={el.title}
+                page={page}
               />
             )
           })
         }
+      </Box>
+      <Box>
+        <Pagination
+          onChange={handlePageChange}
+          page={page}
+          total={totalCount}
+        />
       </Box>
     </Box>
   );

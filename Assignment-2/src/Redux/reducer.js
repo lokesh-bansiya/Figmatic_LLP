@@ -3,6 +3,7 @@ import * as types from "./actionTypes";
 const prevState = {
     dashboardData: [],
     singleItem: [],
+    totalCount: 0,
     isLoading: false,
     isError: false,
 };
@@ -21,7 +22,8 @@ const reducer = (state = prevState, action) => {
             return {
                 ...state,
                 isLoading: false,
-                dashboardData: payload,
+                dashboardData: payload.products,
+                totalCount: payload.count,
             };
         case types.GET_DASHBOARD_DATA_FAILURE:
             return {

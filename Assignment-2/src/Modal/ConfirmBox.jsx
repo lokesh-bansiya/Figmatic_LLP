@@ -5,7 +5,7 @@ import { deleteDashboardData, getDashboardData } from "../Redux/action";
 import "../Styles/Card.css";
 import { UpdateModal } from "./UpdateModal";
 
-const ConfirmBox = ({ id }) => {
+const ConfirmBox = ({ id, page }) => {
 
     const dispatch = useDispatch();
     const toast = useToast();
@@ -16,7 +16,7 @@ const ConfirmBox = ({ id }) => {
     const deleteHandler = (id) => {
         onClose();
         dispatch(deleteDashboardData(id))
-            .then(() => dispatch(getDashboardData()))
+            .then(() => dispatch(getDashboardData(page,"")))
             .then(() =>
                 toast({
                     title: "Data !",
@@ -67,7 +67,7 @@ const ConfirmBox = ({ id }) => {
                 onClose={onClose}
             >
                 <ModalOverlay />
-                <ModalContent backgroundColor="#02ccb8">
+                <ModalContent>
                     <ModalHeader color="red.700">Warning!!!</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
@@ -78,7 +78,7 @@ const ConfirmBox = ({ id }) => {
                         <Button fontSize="80%" colorScheme='red' size={'sm'} mr={3} onClick={() => deleteHandler(id)}>
                             Delete
                         </Button>
-                        <UpdateModal id={id} onOff={onClose}/>
+                        <UpdateModal id={id} onOff={onClose} page={page}/>
                         <Button onClick={onClose} fontSize="80%" size={'sm'}>Cancel</Button>
                     </ModalFooter>
                 </ModalContent>

@@ -19,7 +19,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getDashboardById, getDashboardData, updateDashboardData } from "../Redux/action";
 
 
-const UpdateModal = ({id,onOff}) => {
+const UpdateModal = ({id,onOff, page}) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
@@ -67,7 +67,7 @@ const UpdateModal = ({id,onOff}) => {
             case "minute":
                 return {
                     ...state,
-                    minute: action.payload,
+                    minute: Number(action.payload),
                 };
             case "last_update":
                 return {
@@ -101,7 +101,7 @@ const UpdateModal = ({id,onOff}) => {
             dashboardState.last_update !== "") {
             
             dispatch(updateDashboardData(id, dashboardState))
-                .then(() => dispatch(getDashboardData()))
+                .then(() => dispatch(getDashboardData(page,"")))
                 .then(() =>
                     toast({
                         title: "Data !",
@@ -154,7 +154,7 @@ const UpdateModal = ({id,onOff}) => {
 
     useEffect(() => {
         dispatch(getDashboardById(id));
-    },[id]);
+    },[id, dispatch]);
 
     return (
         <>
@@ -211,7 +211,7 @@ const UpdateModal = ({id,onOff}) => {
                                 variant="flushed"
                                 value={dashboardState.lesson}
                                 placeholder="Course lesson"
-                                type="number"
+                                type="text"
                                 onChange={(e) => setDashboardState({ type: "lesson", payload: Number(e.target.value) })}
                             />
                         </FormControl>
@@ -221,8 +221,8 @@ const UpdateModal = ({id,onOff}) => {
                                 variant="flushed"
                                 value={dashboardState.minute}
                                 placeholder="Course Duration"
-                                type="number"
-                                onChange={(e) => setDashboardState({ type: "minute", payload: e.target.value })}
+                                type="text"
+                                onChange={(e) => setDashboardState({ type: "minute", payload: Number(e.target.value) })}
                             />
                         </FormControl>
 
