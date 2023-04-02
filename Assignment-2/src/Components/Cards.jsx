@@ -5,52 +5,14 @@ import { GoPrimitiveDot } from "react-icons/go";
 import "../Styles/Card.css";
 import { useDispatch } from "react-redux";
 import { deleteDashboardData, getDashboardData } from "../Redux/action";
+import { ConfirmBox } from "../Modal/ConfirmBox";
 
 const Cards = ({ id, img, last_update, lesson, minute, status, tag, title }) => {
 
   const dispatch = useDispatch();
   const toast = useToast();
 
-  const deleteHandler = (id) => {
-    dispatch(deleteDashboardData(id))
-      .then(() => dispatch(getDashboardData()))
-      .then(() =>
-        toast({
-          title: "Data !",
-          description: "New Page Added!",
-          status: "warning",
-          duration: 2000,
-          position: "top",
-          isClosable: true,
-          render: () => (
-            <Box
-              border="1px solid green"
-              textAlign="center"
-              borderRadius="10px"
-              fontWeight="bold"
-              color="white"
-              fontSize="100%"
-              p={3}
-              bg="red"
-              boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
-            >
-              {`Dasboard data deleted!`}
-            </Box>
-          ),
-        })
-      )
-      .catch((err) =>
-        toast({
-          title: "Error!",
-          description: "Something went wrong!",
-          status: "success",
-          duration: 2000,
-          position: "top",
-          isClosable: true,
-        })
-      );
-  };
-
+  
   return (
     <>
       <Box className="ContainerBox" _hover={{ cursor: "pointer" }}>
@@ -111,7 +73,7 @@ const Cards = ({ id, img, last_update, lesson, minute, status, tag, title }) => 
             }
           </Box>
           <Box display="flex" justifyContent="center" alignItems="center" padding="1%">
-            <button className="removeBtn" onClick={() => deleteHandler(id)}>Remove</button>
+            <ConfirmBox key={id} id={id}/>
           </Box>
         </Box>
       </Box>
