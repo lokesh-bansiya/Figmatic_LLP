@@ -46,16 +46,5 @@ const deleteData = (id) => (dispatch) => {
         })
 };
 
-const getById = (id) => (dispatch) => {
-    dispatch({type: types.GET_BYID_REQUEST});
-    return axios.get(`https://awesome-products-backend.vercel.app/calculator/getById/${id}`)
-    .then((res) => {
-        dispatch({ type: types.DELETE_SUCCESS, payload: res.data });
-    })
-    .then((err) => {
-        dispatch({ type: types.DELETE_FAILURE, payload: err });
-    })
-}
 
-
-export { getData, addNewData, updateData, deleteData, getById };
+export { getData, addNewData, updateData, deleteData };
