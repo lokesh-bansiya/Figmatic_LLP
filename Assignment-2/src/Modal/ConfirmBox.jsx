@@ -57,7 +57,7 @@ const ConfirmBox = ({ id, page }) => {
     return (
         <>
             <Box onClick={onOpen} >
-                <button className="removeBtn">Remove</button>
+                <button className="removeBtn">Remove/Update</button>
             </Box>
 
             <Modal

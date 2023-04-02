@@ -28,7 +28,7 @@ const Cards = ({ id,page, img, last_update, lesson, minute, status, tag, title }
           />
         </Box>
 
-        <Box textAlign="left" padding="5%" color="gray.600">
+        <Box textAlign="left" padding="5%" color="gray.600" display="flex" flexDirection="column" justifyContent="space-between">
           <Box>
             <Text fontWeight="bold" fontSize={{ base: "80%" }}>
               {title}
@@ -67,7 +67,7 @@ const Cards = ({ id,page, img, last_update, lesson, minute, status, tag, title }
               })
             }
           </Box>
-          <Box display="flex" justifyContent="center" alignItems="center" padding="1%">
+          <Box alignSelf="bottom" display="flex" justifyContent="center" alignItems="center" padding="1%">
             <ConfirmBox key={id} id={id} page={page}/>
           </Box>
         </Box>
