@@ -26,11 +26,11 @@ const MainPage = () => {
 
   return (
     <>
-      
+
       <div className="Container">
-      <div className="button">
-        <AddNewData />
-      </div>
+        <div className="button">
+          <AddNewData />
+        </div>
         <div className="firstChild">
           <div className="summary">
 

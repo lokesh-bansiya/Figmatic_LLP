@@ -6,7 +6,6 @@ const getData = () => (dispatch) => {
     return axios.get(`https://awesome-products-backend.vercel.app/calculator`)
         .then((res) => {
             dispatch({ type: types.GET_DATA_SUCCESS, payload: res.data });
-            // console.log(res.data);
         })
         .then((err) => {
             dispatch({ type: types.GET_DATA_FAILURE, payload: err });
@@ -29,7 +28,6 @@ const updateData = (id, payload) => (dispatch) => {
     return axios.patch(`https://awesome-products-backend.vercel.app/calculator/update/${id}`, payload)
         .then((res) => {
             dispatch({ type: types.UPDATE_DATA_SUCCESS, payload: res.data });
-            // console.log("updated data: ", payload);
         })
         .then((err) => {
             dispatch({ type: types.UPDATE_DATA_FAILURE, payload: err });

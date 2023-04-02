@@ -3,7 +3,6 @@ import React, { useReducer } from "react";
 import { useDispatch } from "react-redux";
 import { addNewData, getData } from "../Redux/action";
 
-
 const initialState = {
     page: "",
     design: ["None", "Basic", "Advanced", "Complex"],
@@ -79,7 +78,7 @@ const AddNewData = () => {
 
 
     const addDataHandler = () => {
-        console.log(dataState);
+        // console.log(dataState);
         if (dataState.page !== "") {
             dispatch(addNewData(dataState))
                 .then(() => dispatch(getData()))
@@ -96,13 +95,14 @@ const AddNewData = () => {
                                 border="1px solid green"
                                 textAlign="center"
                                 borderRadius="10px"
-                                fontWeight="bolder"
-                                color="white"
+                                fontWeight="bold"
+                                color="#018a83"
+                                fontSize="90%"
                                 p={3}
-                                bg="blue.500"
+                                bg="#c3e6cd"
                                 boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
                             >
-                                {`Page Successfully Added !`}
+                                {`New Page Successfully Added!`}
                             </Box>
                         ),
                     })
@@ -110,7 +110,7 @@ const AddNewData = () => {
                 .catch((err) =>
                     toast({
                         title: "Error!",
-                        description: "Something went wrong.",
+                        description: "Something went wrong!",
                         status: "success",
                         duration: 2000,
                         position: "top",
@@ -133,15 +133,16 @@ const AddNewData = () => {
 
     return (
         <>
-            <Button 
-                padding="-1px" 
-                fontSize={{base: "50%", sm:"60%", md:"70%", lg:"80%", xl:"90%"}}
-                onClick={onOpen} 
-                size="sm" 
-                backgroundColor="#027070" 
-                color="white" 
-                borderRadius="1px" 
-                border="1px solid black"
+            <Button
+                padding="-1px"
+                fontSize={{ base: "50%", sm: "60%", md: "70%", lg: "80%", xl: "90%" }}
+                onClick={onOpen}
+                size="sm"
+                backgroundColor="#c3e6cd"
+                color="black"
+                borderRadius="5px"
+                border="0.5px solid black"
+                _hover={{bg: "#c3e6cd", color: "red", border: "0.5px solid green"}}
             >
                 Add More Item
             </Button>
@@ -153,20 +154,20 @@ const AddNewData = () => {
                 onClose={onClose}
             >
                 <ModalOverlay />
-                <ModalContent>
+                <ModalContent backgroundColor="#8f8145">
                     <ModalHeader>Create New Page</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl>
-                            <Input variant='flushed' value={dataState.page} placeholder='Page Name' onChange={(e) => setDataState({ type: "page", payload: e.target.value })} />
+                            <Input color="inherit" bg="inherit" opacity={1} variant='flushed' value={dataState.page} placeholder='Page Name' _placeholder={{ color: "white" }} _focus={{ color: "inherit", bg: "inherit" }} onChange={(e) => setDataState({ type: "page", payload: e.target.value })} />
                         </FormControl>
                     </ModalBody>
 
                     <ModalFooter>
-                        <Button colorScheme='blue' mr={3} onClick={() => addDataHandler()}>
+                        <Button colorScheme='green' border="1px solid black" size={'sm'} mr={3} onClick={() => addDataHandler()}>
                             Create
                         </Button>
-                        <Button onClick={onClose}>Cancel</Button>
+                        <Button colorScheme="white" color="black" border="1px solid red" onClick={onClose} size={'sm'}>Cancel</Button>
                     </ModalFooter>
                 </ModalContent>
             </Modal>
