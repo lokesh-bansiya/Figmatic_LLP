@@ -46,7 +46,7 @@ const Pagination = ({ onChange, page, total }) => {
                 width: "sm",
                 padding: "2px 6px",
             }}
-            disabled={page === Math.ceil(total / 5)}
+            disabled={page === Math.ceil(total / 5) || total === 0}
             onClick={() => onChange(1)}
         >
             Next

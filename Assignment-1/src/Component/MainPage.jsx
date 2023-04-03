@@ -6,7 +6,8 @@ import { getData } from "../Redux/action";
 import { TableItem } from "./TableItem";
 import { AddNewData } from "../Modal/AddData";
 import { Pagination } from "./Pagination";
-import { Box } from "@chakra-ui/react";
+import { Box, Image } from "@chakra-ui/react";
+import loadingforhome from "../Assests/loadingforhome.gif";
 
 const MainPage = () => {
 
@@ -107,35 +108,42 @@ const MainPage = () => {
                 </th>
               </tr>
             </thead>
-            <tbody>
-              {
-                products.length > 0 && 
-                products.map((item, index) => ({
-                  ...item,
-                  serialNumber: startingIndex + index
-                })).map((el, i) => {
-                  return (
-                    <TableItem
-                      key={el._id}
-                      _id={el._id}
-                      page={el.page}
-                      index={i + 1}
-                      price={el.price}
-                      interactions={el.interactions}
-                      design={el.design}
-                      integration={el.integration}
-                      designCount={el.designCount}
-                      interactionsCount={el.interactionsCount}
-                      integrationCount={el.integrationCount}
-                      pageno={page}
-                      count={count}
-                      serialNumber={el.serialNumber}
-                    />
-                  )
-                })
-              }
-            </tbody>
-
+            {
+              products.length > 0 ?
+                (
+                  <tbody>
+                    {
+                      products.map((item, index) => ({
+                        ...item,
+                        serialNumber: startingIndex + index
+                      })).map((el, i) => {
+                        return (
+                          <TableItem
+                            key={el._id}
+                            _id={el._id}
+                            page={el.page}
+                            index={i + 1}
+                            price={el.price}
+                            interactions={el.interactions}
+                            design={el.design}
+                            integration={el.integration}
+                            designCount={el.designCount}
+                            interactionsCount={el.interactionsCount}
+                            integrationCount={el.integrationCount}
+                            pageno={page}
+                            count={count}
+                            serialNumber={el.serialNumber}
+                          />
+                        )
+                      })
+                    }
+                  </tbody>
+                ) : (
+                  <Box display="flex" justifyContent="center" alignItems="center" width="100%" height={{ base: "150px", sm: "200px", md: "230pxvh", lg: "300px", xl: "330px" }}>
+                    <Image width="30%" src={loadingforhome} alt="Loading..." />
+                  </Box>
+                )
+            }
           </table>
           <Box>
             <Pagination
