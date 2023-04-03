@@ -40,7 +40,7 @@ const Pagination = ({ onChange, page, total }) => {
                 fontSize: "100%",
                 padding: "2px 10px",
             }}
-            disabled={page === Math.ceil(total / 12)}
+            disabled={page === Math.ceil(total / 12) || total === 0}
             onClick={() => onChange(1)}
         >
             Next
