@@ -14,7 +14,7 @@ import {
     useDisclosure,
     useToast,
 } from "@chakra-ui/react";
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addNewDashboardData, getDashboardData } from "../Redux/action";
 
@@ -76,7 +76,7 @@ const dashboardReducer = (state, action) => {
     }
 };
 
-const CreateCourse = ({page}) => {
+const CreateCourse = ({ page }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
@@ -86,10 +86,23 @@ const CreateCourse = ({page}) => {
     );
     const dispatch = useDispatch();
     const toast = useToast();
+    const [text, setText] = useState("");
+    const [arr, setArr] = useState([]);
+
+
+    const addTagHandler = () => {
+        if (text !== "") {
+            setArr([...arr, text]);
+            console.log("arr", arr);
+        }
+        setDashboardState({ type: "tag", payload: arr });
+        setText("");
+    }
 
 
     const addHandler = () => {
         console.log(dashboardState);
+
         if (dashboardState.img !== "" &&
             dashboardState.title !== "" &&
             dashboardState.status !== "" &&
@@ -97,7 +110,7 @@ const CreateCourse = ({page}) => {
             dashboardState.lesson !== 0 &&
             dashboardState.last_update !== "") {
             dispatch(addNewDashboardData(dashboardState))
-                .then(() => dispatch(getDashboardData(page,"")))
+                .then(() => dispatch(getDashboardData(page, "")))
                 .then(() =>
                     toast({
                         title: "Data !",
@@ -145,6 +158,7 @@ const CreateCourse = ({page}) => {
             });
         }
         setTimeout(() => setDashboardState({ type: "reset" }), 500);
+        setArr([]);
         onClose();
     }
 
@@ -236,6 +250,26 @@ const CreateCourse = ({page}) => {
                                 onChange={(e) => setDashboardState({ type: "last_update", payload: e.target.value })}
                             />
                         </FormControl>
+
+
+
+                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                            <Box width="90%">
+                                <FormControl mt={2} width="100%">
+                                    <Select
+                                        placeholder="Add Tag"
+                                        value={text}
+                                        type="text"
+                                        onChange={(e) => setText(e.target.value)}
+                                    >
+                                        <option value="Sales">Sales</option>
+                                        <option value="Marketing">Marketing</option>
+                                    </Select>
+                                </FormControl>
+                            </Box>
+                            <Button onClick={() => addTagHandler()} colorScheme="orange">Add Tag</Button>
+                        </Box>
+
 
                     </ModalBody>
 

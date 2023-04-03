@@ -38,7 +38,7 @@ const reducer = (state = prevState, action) => {
         case types.GET_DASHBOARD_BYID_SUCCESS:
             return {
                 ...state,
-                singleItem: [payload],
+                singleItem: payload,
             };
         case types.GET_DASHBOARD_BYID_ERROR:
             return {
