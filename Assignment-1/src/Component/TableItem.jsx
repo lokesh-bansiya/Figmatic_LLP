@@ -5,14 +5,16 @@ import { useDispatch } from "react-redux";
 import { getData, updateData } from "../Redux/action";
 import { Box, useToast } from "@chakra-ui/react";
 import { Confirm } from "../Modal/ConfirmModal";
+import { useState } from "react";
 
-const TableItem = ({ page,pageno,count, index, price, interactions, design, integration, designCount, interactionsCount, integrationCount, _id }) => {
 
+const TableItem = ({ page, pageno, serialNumber, price, interactions, design, integration, designCount, interactionsCount, integrationCount, _id }) => {
+  
     const dispatch = useDispatch();
     const toast = useToast();
 
     const plusHandler = (_id, value) => {
-    
+
         if (value === "design") {
             if (designCount < 3) {
                 var change = designCount = designCount + 1;
@@ -52,7 +54,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
             }
         }
         else if (value === "interactions") {
-            
+
             if (interactionsCount < 3) {
                 var change = interactionsCount = interactionsCount + 1;
                 console.log("interactionsCount", change);
@@ -253,7 +255,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
     return (
         <tr className="tRow" key={_id}>
             <td className="td1">
-                <span className="numbering">{index < 10 ? `0${index}.` : `${index}.`}</span>
+                <span className="numbering">{serialNumber < 10 ? `0${serialNumber}.` : `${serialNumber}.`}</span>
                 <span className="rowContent">{page}</span>
             </td>
 
@@ -286,7 +288,7 @@ const TableItem = ({ page,pageno,count, index, price, interactions, design, inte
             </td>
 
             <td className="td_Cost td3">
-                <Confirm key={_id} id={_id} page={page} pageno={pageno}/>
+                <Confirm key={_id} id={_id} page={page} pageno={pageno} />
             </td>
         </tr>
     );

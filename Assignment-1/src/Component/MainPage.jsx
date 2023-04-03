@@ -2,7 +2,7 @@ import "../Styles/MainPage.css";
 import circle from "../Assests/info.circle.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect, useState } from "react";
-import { getData } from"../Redux/action";
+import { getData } from "../Redux/action";
 import { TableItem } from "./TableItem";
 import { AddNewData } from "../Modal/AddData";
 import { Pagination } from "./Pagination";
@@ -15,6 +15,7 @@ const MainPage = () => {
   const totalSum = useSelector(store => store.totalSum);
   const [page, setPage] = useState(1);
   const dispatch = useDispatch();
+  const startingIndex = (page - 1) * 5 + 1;
 
   const handlePageChange = (n) => {
     setPage((init) => init + n);
@@ -28,7 +29,6 @@ const MainPage = () => {
   useEffect(() => {
     if (products.length === 0) {
       dispatch(getData(page));
-      console.log(page)
     };
   }, [products, products.length, dispatch, page]);
 
@@ -37,7 +37,7 @@ const MainPage = () => {
 
       <div className="Container">
         <div className="button">
-          <AddNewData pageno={page}/>
+          <AddNewData pageno={page} />
         </div>
         <div className="firstChild">
           <div className="summary">
@@ -109,7 +109,11 @@ const MainPage = () => {
             </thead>
             <tbody>
               {
-                products.length > 0 && products.map((el, i) => {
+                products.length > 0 && 
+                products.map((item, index) => ({
+                  ...item,
+                  serialNumber: startingIndex + index
+                })).map((el, i) => {
                   return (
                     <TableItem
                       key={el._id}
@@ -125,6 +129,7 @@ const MainPage = () => {
                       integrationCount={el.integrationCount}
                       pageno={page}
                       count={count}
+                      serialNumber={el.serialNumber}
                     />
                   )
                 })
