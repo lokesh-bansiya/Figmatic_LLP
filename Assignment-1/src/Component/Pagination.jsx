@@ -27,7 +27,6 @@ const Pagination = ({ onChange, page, total }) => {
             fontSize: "70%",
             fontWeight: "bold",
             width: "sm",
-            fontWeight: "bold",
             padding: "2px 6px"
         }}>
             {page}

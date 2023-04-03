@@ -79,32 +79,32 @@ const MainPage = () => {
               <tr className="theader">
                 <th className="td_pages td1">
                   <span className="heading">Pages</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt=""/>
                 </th>
 
                 <th className="td_pages td2">
                   <span className="heading">Design</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt=""/>
                 </th>
 
                 <th className="td_pages td2">
                   <span className="heading">Interactions & Animations</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt=""/>
                 </th>
 
                 <th className="td_pages td2">
                   <span className="heading">Integration</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt=""/>
                 </th>
 
                 <th className="td_pages td3 lastHeading">
                   <span className="heading">Cost</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt=""/>
                 </th>
 
                 <th className="td_pages td3 lastHeading">
                   <span className="heading">Delete</span>
-                  <img className="headingIcon" src={circle} />
+                  <img className="headingIcon" src={circle} alt="cicle img"/>
                 </th>
               </tr>
             </thead>
