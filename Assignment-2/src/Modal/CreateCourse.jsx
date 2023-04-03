@@ -236,6 +236,7 @@ const CreateCourse = ({page}) => {
                                 onChange={(e) => setDashboardState({ type: "last_update", payload: e.target.value })}
                             />
                         </FormControl>
+
                     </ModalBody>
 
                     <ModalFooter>

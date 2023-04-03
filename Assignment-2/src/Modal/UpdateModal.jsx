@@ -2,6 +2,7 @@ import {
     Box,
     Button,
     FormControl,
+    FormLabel,
     Input,
     Modal,
     ModalBody,
@@ -11,19 +12,21 @@ import {
     ModalHeader,
     ModalOverlay,
     Select,
+    Tag,
     useDisclosure,
     useToast,
 } from "@chakra-ui/react";
-import React, { useEffect, useReducer } from "react";
+import React, { useEffect, useReducer, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDashboardById, getDashboardData, updateDashboardData } from "../Redux/action";
+import {CloseIcon} from "@chakra-ui/icons";
 
 
-const UpdateModal = ({id,onOff, page}) => {
+const UpdateModal = ({ id, onOff, page }) => {
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
-    
+
     const dispatch = useDispatch();
     const toast = useToast();
     let data = useSelector(store => store.singleItem);
@@ -37,7 +40,7 @@ const UpdateModal = ({id,onOff, page}) => {
         last_update: data.last_update,
         tag: data.tag,
     };
-    
+
     const dashboardReducer = (state, action) => {
         switch (action.type) {
             case "img":
@@ -45,25 +48,25 @@ const UpdateModal = ({id,onOff, page}) => {
                     ...state,
                     img: action.payload,
                 };
-    
+
             case "status":
                 return {
                     ...state,
                     status: action.payload,
                 };
-    
+
             case "title":
                 return {
                     ...state,
                     title: action.payload,
                 };
-    
+
             case "lesson":
                 return {
                     ...state,
                     lesson: Number(action.payload),
                 };
-    
+
             case "minute":
                 return {
                     ...state,
@@ -86,10 +89,27 @@ const UpdateModal = ({id,onOff, page}) => {
         }
     };
 
+    const [text, setText] = useState("");
+
     const [dashboardState, setDashboardState] = useReducer(
         dashboardReducer,
         initialState
     );
+
+    const addTagHandler = (text) => {
+        if (text !== "") {
+            dashboardState.tag.push(text);
+            // console.log(dashboardState.tag);
+            dispatch(getDashboardById(id));
+            setText("");
+        }
+    }
+
+    const removeTagHandler = (item,i) => {
+        dashboardState.tag.splice(i,1);
+        // console.log("removed:", dashboardState.tag);
+        dispatch(getDashboardById(id));
+    }
 
     const updateHandler = () => {
         onOff();
@@ -99,9 +119,9 @@ const UpdateModal = ({id,onOff, page}) => {
             dashboardState.minute !== 0 &&
             dashboardState.lesson !== 0 &&
             dashboardState.last_update !== "") {
-            
+
             dispatch(updateDashboardData(id, dashboardState))
-                .then(() => dispatch(getDashboardData(page,"")))
+                .then(() => dispatch(getDashboardData(page, "")))
                 .then(() =>
                     toast({
                         title: "Data !",
@@ -154,7 +174,7 @@ const UpdateModal = ({id,onOff, page}) => {
 
     useEffect(() => {
         dispatch(getDashboardById(id));
-    },[id, dispatch]);
+    }, [id, dispatch, isOpen]);
 
     return (
         <>
@@ -235,6 +255,42 @@ const UpdateModal = ({id,onOff, page}) => {
                                 onChange={(e) => setDashboardState({ type: "last_update", payload: e.target.value })}
                             />
                         </FormControl>
+
+                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                            <Box width="90%">
+                            <FormControl mt={2} width="100%">
+                                <Input
+                                    variant="flushed"
+                                    width="100%"
+                                    value={text}
+                                    placeholder="Add Tag"
+                                    type="text"
+                                    onChange={(e) => setText(e.target.value)}
+                                />
+                                
+                            </FormControl>
+                            </Box>
+                            <Button onClick={() => addTagHandler(text)} colorScheme="orange">Add Tag</Button>
+                        </Box>
+
+                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                            <Box width="90%">
+                            <FormLabel>Remove Tag</FormLabel>
+                            <Box>
+                                {
+                                    dashboardState.tag ? (dashboardState.tag.length > 0 && dashboardState.tag.map((item,i) => {
+                                        return (
+                                            <Tag margin="1%">{item}<CloseIcon onClick={(item,i) => removeTagHandler(item,i)} marginLeft="8px" color="red" fontSize="70%" /></Tag>
+                                        )
+                                    })
+                                    ) : (
+                                       <Box><Tag>Empty tag</Tag></Box>
+                                    )
+                                }
+                            </Box>
+                            </Box>
+                        </Box>
+
                     </ModalBody>
 
                     <ModalFooter>
