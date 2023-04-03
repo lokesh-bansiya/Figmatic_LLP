@@ -79,44 +79,45 @@ const UpdateModal = ({ id, page }) => {
             newDashboardData.minute !== 0 &&
             newDashboardData.lesson !== 0 &&
             newDashboardData.last_update !== "") {
-
-            dispatch(updateDashboardData(id, newDashboardData))
-                .then(() => dispatch(getDashboardData(page, "")))
-                .then(() =>
-                    toast({
-                        title: "Data !",
-                        description: "New Page Added!",
-                        status: "success",
-                        duration: 2000,
-                        position: "top",
-                        isClosable: true,
-                        render: () => (
-                            <Box
-                                border="1px solid green"
-                                textAlign="center"
-                                borderRadius="10px"
-                                fontWeight="bold"
-                                color="white"
-                                fontSize="100%"
-                                p={3}
-                                bg="green"
-                                boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
-                            >
-                                {`Lecture Successfully Updated!`}
-                            </Box>
-                        ),
-                    })
-                )
-                .catch((err) =>
-                    toast({
-                        title: "Error!",
-                        description: "Something went wrong!",
-                        status: "success",
-                        duration: 2000,
-                        position: "top",
-                        isClosable: true,
-                    })
-                );
+            
+                console.log("newDashboardData", newDashboardData)
+            // dispatch(updateDashboardData(id, newDashboardData))
+            //     .then(() => dispatch(getDashboardData(page, "")))
+            //     .then(() =>
+            //         toast({
+            //             title: "Data !",
+            //             description: "New Page Added!",
+            //             status: "success",
+            //             duration: 2000,
+            //             position: "top",
+            //             isClosable: true,
+            //             render: () => (
+            //                 <Box
+            //                     border="1px solid green"
+            //                     textAlign="center"
+            //                     borderRadius="10px"
+            //                     fontWeight="bold"
+            //                     color="white"
+            //                     fontSize="100%"
+            //                     p={3}
+            //                     bg="green"
+            //                     boxShadow="rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px"
+            //                 >
+            //                     {`Lecture Successfully Updated!`}
+            //                 </Box>
+            //             ),
+            //         })
+            //     )
+            //     .catch((err) =>
+            //         toast({
+            //             title: "Error!",
+            //             description: "Something went wrong!",
+            //             status: "success",
+            //             duration: 2000,
+            //             position: "top",
+            //             isClosable: true,
+            //         })
+            //     );
         }
         else {
             toast({
@@ -159,7 +160,7 @@ const UpdateModal = ({ id, page }) => {
             >
                 <ModalOverlay />
                 <ModalContent padding="1%">
-                    <ModalHeader>Create course</ModalHeader>
+                    <ModalHeader>Update Course</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody pb={6}>
                         <FormControl mt={7}>
@@ -241,9 +242,9 @@ const UpdateModal = ({ id, page }) => {
                                 </FormControl>
                             </Box>
                             <Button onClick={() => addTagHandler(text)} colorScheme="orange">Add Tag</Button>
-                        </Box> */}
+                        </Box>
 
-                        {/* <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
                             <Box width="90%">
                                 <FormLabel>Remove Tag</FormLabel>
                                 <Box>
