@@ -3,7 +3,6 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteDashboardData, getDashboardData } from "../Redux/action";
 import "../Styles/Card.css";
-import { UpdateModal } from "./UpdateModal";
 
 const ConfirmBox = ({ id, page }) => {
 
@@ -56,9 +55,9 @@ const ConfirmBox = ({ id, page }) => {
 
     return (
         <>
-            <Box onClick={onOpen} >
-                <button className="removeBtn">Remove/Update</button>
-            </Box>
+            <Button fontSize="80%" colorScheme='red' onClick={onOpen} size={'sm'} mr={3}>
+                Remove
+            </Button>
 
             <Modal
                 initialFocusRef={initialRef}
@@ -78,7 +77,6 @@ const ConfirmBox = ({ id, page }) => {
                         <Button fontSize="80%" colorScheme='red' size={'sm'} mr={3} onClick={() => deleteHandler(id)}>
                             Delete
                         </Button>
-                        <UpdateModal id={id} onOff={onClose} page={page}/>
                         <Button onClick={onClose} fontSize="80%" size={'sm'}>Cancel</Button>
                     </ModalFooter>
                 </ModalContent>

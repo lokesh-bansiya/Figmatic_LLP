@@ -16,111 +16,71 @@ import {
     useDisclosure,
     useToast,
 } from "@chakra-ui/react";
-import React, { useEffect, useReducer, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getDashboardById, getDashboardData, updateDashboardData } from "../Redux/action";
-import {CloseIcon} from "@chakra-ui/icons";
+import { CloseIcon } from "@chakra-ui/icons";
 
 
-const UpdateModal = ({ id, onOff, page }) => {
+const UpdateModal = ({ id, page }) => {
+
     const { isOpen, onOpen, onClose } = useDisclosure();
     const initialRef = React.useRef(null);
     const finalRef = React.useRef(null);
 
+    const [img, setImg] = useState("");
+    const [status, setStatus] = useState("");
+    const [title, setTitle] = useState("");
+    const [lesson, setLesson] = useState(0);
+    const [minute, setMinute] = useState(0);
+    const [last_update, setLastUpdate] = useState("");
+    const [tag, setTag] = useState([]);
+
     const dispatch = useDispatch();
     const toast = useToast();
-    let data = useSelector(store => store.singleItem);
-
-    const initialState = {
-        img: data.img,
-        status: data.status,
-        title: data.title,
-        lesson: data.lesson,
-        minute: data.minute,
-        last_update: data.last_update,
-        tag: data.tag,
-    };
-
-    const dashboardReducer = (state, action) => {
-        switch (action.type) {
-            case "img":
-                return {
-                    ...state,
-                    img: action.payload,
-                };
-
-            case "status":
-                return {
-                    ...state,
-                    status: action.payload,
-                };
-
-            case "title":
-                return {
-                    ...state,
-                    title: action.payload,
-                };
-
-            case "lesson":
-                return {
-                    ...state,
-                    lesson: Number(action.payload),
-                };
-
-            case "minute":
-                return {
-                    ...state,
-                    minute: Number(action.payload),
-                };
-            case "last_update":
-                return {
-                    ...state,
-                    last_update: action.payload,
-                };
-            case "tag":
-                return {
-                    ...state,
-                    tag: action.payload,
-                };
-            case "reset":
-                return initialState;
-            default:
-                return state;
-        }
-    };
-
+    const data = useSelector(store => store.singleItem);
     const [text, setText] = useState("");
 
-    const [dashboardState, setDashboardState] = useReducer(
-        dashboardReducer,
-        initialState
-    );
 
-    const addTagHandler = (text) => {
-        if (text !== "") {
-            dashboardState.tag.push(text);
-            // console.log(dashboardState.tag);
-            dispatch(getDashboardById(id));
-            setText("");
-        }
-    }
+    console.log("id", id);
+    console.log("singleItem", data);
 
-    const removeTagHandler = (item,i) => {
-        dashboardState.tag.splice(i,1);
-        // console.log("removed:", dashboardState.tag);
-        dispatch(getDashboardById(id));
-    }
+    const newDashboardData = {
+        img,
+        status,
+        title,
+        lesson,
+        minute,
+        last_update,
+        tag,
+    };
+
+    // const addTagHandler = (text) => {
+    //     if (text !== "") {
+    //         setTag([...data[0].tag, text]);
+    //         console.log("", data[0].tag);
+    //         dispatch(getDashboardData(page, ""))
+    //             .then(() => dispatch(getDashboardById(id)))
+    //     }
+    // }
+
+    // const removeTagHandler = (item, i) => {
+    //     tag.splice(i, 1);
+    //     console.log("removed:", tag);
+    //     dispatch(getDashboardData(page, ""))
+    //     .then(() => dispatch(getDashboardById(id)))
+    // }
 
     const updateHandler = () => {
-        onOff();
-        if (dashboardState.img !== "" &&
-            dashboardState.title !== "" &&
-            dashboardState.status !== "" &&
-            dashboardState.minute !== 0 &&
-            dashboardState.lesson !== 0 &&
-            dashboardState.last_update !== "") {
 
-            dispatch(updateDashboardData(id, dashboardState))
+        if (newDashboardData.img !== "" &&
+            newDashboardData.title !== "" &&
+            newDashboardData.status !== "" &&
+            newDashboardData.minute !== 0 &&
+            newDashboardData.lesson !== 0 &&
+            newDashboardData.last_update !== "") {
+
+            dispatch(updateDashboardData(id, newDashboardData))
                 .then(() => dispatch(getDashboardData(page, "")))
                 .then(() =>
                     toast({
@@ -168,13 +128,23 @@ const UpdateModal = ({ id, onOff, page }) => {
                 isClosable: true,
             });
         }
-        setTimeout(() => setDashboardState({ type: "reset" }), 500);
         onClose();
     }
 
     useEffect(() => {
-        dispatch(getDashboardById(id));
-    }, [id, dispatch, isOpen]);
+        if (data.length === 0) {
+            dispatch(getDashboardById(id));
+        }
+        if (data) {
+            setImg(data[0].img);
+            setStatus(data[0].status);
+            setTitle(data[0].title);
+            setLesson(data[0].status);
+            setMinute(data[0].minute);
+            setLastUpdate(data[0].last_update);
+            setTag(data[0].tag && [...data[0].tag]);
+        }
+    }, [id, dispatch, data.length, data]);
 
     return (
         <>
@@ -194,12 +164,12 @@ const UpdateModal = ({ id, onOff, page }) => {
                     <ModalBody pb={6}>
                         <FormControl mt={7}>
                             <Input
-                                value={dashboardState.img}
+                                value={img}
                                 type="url"
                                 variant="flushed"
                                 placeholder="Poster URL"
                                 onChange={(e) =>
-                                    setDashboardState({ type: "img", payload: e.target.value })
+                                    setImg(e.target.value)
                                 }
                             />
                         </FormControl>
@@ -207,9 +177,9 @@ const UpdateModal = ({ id, onOff, page }) => {
                         <FormControl mt={7}>
                             <Select
                                 placeholder="Select status"
-                                value={dashboardState.status}
+                                value={status}
                                 type="text"
-                                onChange={(e) => setDashboardState({ type: "status", payload: e.target.value })}
+                                onChange={(e) => setStatus(e.target.value)}
                             >
                                 <option value="DRAFT">DRAFT</option>
                                 <option value="ARCHIVED">ARCHIVED</option>
@@ -220,76 +190,76 @@ const UpdateModal = ({ id, onOff, page }) => {
                         <FormControl mt={7}>
                             <Input
                                 variant="flushed"
-                                value={dashboardState.title}
+                                value={title}
                                 placeholder="Course title"
-                                onChange={(e) => setDashboardState({ type: "title", payload: e.target.value })}
+                                onChange={(e) => setTitle(e.target.value)}
                             />
                         </FormControl>
 
                         <FormControl mt={7}>
                             <Input
                                 variant="flushed"
-                                value={dashboardState.lesson}
+                                value={lesson}
                                 placeholder="Course lesson"
                                 type="text"
-                                onChange={(e) => setDashboardState({ type: "lesson", payload: Number(e.target.value) })}
+                                onChange={(e) => setLesson(Number(e.target.value))}
                             />
                         </FormControl>
 
                         <FormControl mt={7}>
                             <Input
                                 variant="flushed"
-                                value={dashboardState.minute}
+                                value={minute}
                                 placeholder="Course Duration"
                                 type="text"
-                                onChange={(e) => setDashboardState({ type: "minute", payload: Number(e.target.value) })}
+                                onChange={(e) => setMinute(Number(e.target.value))}
                             />
                         </FormControl>
 
                         <FormControl mt={7}>
                             <Input
                                 variant="flushed"
-                                value={dashboardState.last_update}
+                                value={last_update}
                                 placeholder="Day"
                                 type="date"
-                                onChange={(e) => setDashboardState({ type: "last_update", payload: e.target.value })}
+                                onChange={(e) => setLastUpdate(e.target.value)}
                             />
                         </FormControl>
 
-                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                        {/* <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
                             <Box width="90%">
-                            <FormControl mt={2} width="100%">
-                                <Input
-                                    variant="flushed"
-                                    width="100%"
-                                    value={text}
-                                    placeholder="Add Tag"
-                                    type="text"
-                                    onChange={(e) => setText(e.target.value)}
-                                />
-                                
-                            </FormControl>
+                                <FormControl mt={2} width="100%">
+                                    <Select
+                                        placeholder="Add Tag"
+                                        value={text}
+                                        type="text"
+                                        onChange={(e) => setText(e.target.value)}
+                                    >
+                                        <option value="Sales">Sales</option>
+                                        <option value="Marketing">Marketing</option>
+                                    </Select>
+                                </FormControl>
                             </Box>
                             <Button onClick={() => addTagHandler(text)} colorScheme="orange">Add Tag</Button>
-                        </Box>
+                        </Box> */}
 
-                        <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
+                        {/* <Box mt={7} display="flex" justifyContent="space-between" width="100%" alignItems="flex-end">
                             <Box width="90%">
-                            <FormLabel>Remove Tag</FormLabel>
-                            <Box>
-                                {
-                                    dashboardState.tag ? (dashboardState.tag.length > 0 && dashboardState.tag.map((item,i) => {
-                                        return (
-                                            <Tag margin="1%">{item}<CloseIcon onClick={(item,i) => removeTagHandler(item,i)} marginLeft="8px" color="red" fontSize="70%" /></Tag>
+                                <FormLabel>Remove Tag</FormLabel>
+                                <Box>
+                                    {
+                                        tag && tag.length > 0 ? (tag.map((item, i) => {
+                                            return (
+                                                <Tag key={i} margin="1%">{item}<CloseIcon onClick={(item, i) => removeTagHandler(item, i)} marginLeft="8px" color="red" fontSize="70%" /></Tag>
+                                            )
+                                        })
+                                        ) : (
+                                            <Box><Tag>Empty tag</Tag></Box>
                                         )
-                                    })
-                                    ) : (
-                                       <Box><Tag>Empty tag</Tag></Box>
-                                    )
-                                }
+                                    }
+                                </Box>
                             </Box>
-                            </Box>
-                        </Box>
+                        </Box> */}
 
                     </ModalBody>
 

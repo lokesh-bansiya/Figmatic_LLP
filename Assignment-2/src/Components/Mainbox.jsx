@@ -11,12 +11,12 @@ import { Pagination } from "./Pagination";
 const Mainbox = () => {
 
   const dashboardData = useSelector(store => store.dashboardData);
-  const totalCount = useSelector(store=> store.totalCount);
+  const totalCount = useSelector(store => store.totalCount);
   const dispatch = useDispatch();
   const [page, setPage] = useState(1);
 
   console.log("totalCount", totalCount);
-  
+
   const handlePageChange = (n) => {
     setPage((init) => init + n);
   };
@@ -27,13 +27,13 @@ const Mainbox = () => {
 
   useEffect(() => {
     if (dashboardData.length === 0) {
-      dispatch(getDashboardData(page,""));
+      dispatch(getDashboardData(page, ""));
     }
-  }, [dashboardData, dashboardData.length, dispatch,page]);
+  }, [dashboardData, dashboardData.length, dispatch, page]);
 
-  
+
   useEffect(() => {
-    dispatch(getDashboardData(page,""));
+    dispatch(getDashboardData(page, ""));
   }, [dispatch, page]);
 
   return (
@@ -65,10 +65,10 @@ const Mainbox = () => {
           }}
         >
           <Text className="MenuBar"><MenuDrawer /></Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,""))}>ALL</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"LIVE"))}>LIVE</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"DRAFT"))}>DRAFT</Text>
-          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page,"ARCHIVED"))}>ARCHIVED</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page, ""))}>ALL</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page, "LIVE"))}>LIVE</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page, "DRAFT"))}>DRAFT</Text>
+          <Text _hover={{ textDecoration: "underline", cursor: "pointer" }} onClick={(e) => dispatch(getDashboardData(page, "ARCHIVED"))}>ARCHIVED</Text>
         </Box>
         <Box width={{ base: "35%", sm: "30%", md: "25%", lg: "20%", xl: "20%" }} >
           <select onChange={(e) => handleChange(e.target.value)} className="selectBox" style={{ cursor: "pointer", border: "0.5px solid gray", fontSize: "80%", padding: "1%", }} placeholder="Select Team">
@@ -78,26 +78,32 @@ const Mainbox = () => {
           </select>
         </Box>
       </Box>
-      <Box className="Grid_Container">
-        {
-          dashboardData.length > 0 && dashboardData.map((el) => {
-            return (
-              <Cards
-                key={el._id}
-                id={el._id}
-                img={el.img}
-                last_update={el.last_update}
-                lesson={el.lesson}
-                minute={el.minute}
-                status={el.status}
-                tag={el.tag}
-                title={el.title}
-                page={page}
-              />
-            )
-          })
-        }
-      </Box>
+      {
+        dashboardData.length > 0 ? (
+          <Box className="Grid_Container">
+            {
+              dashboardData.map((el) => {
+                return (
+                  <Cards
+                    key={el._id}
+                    id={el._id}
+                    img={el.img}
+                    last_update={el.last_update}
+                    lesson={el.lesson}
+                    minute={el.minute}
+                    status={el.status}
+                    tag={el.tag}
+                    title={el.title}
+                    page={page}
+                  />
+                )
+              })
+            }
+          </Box>
+        ) : (
+          <Box minHeight="50vh" fontSize={"200%"} display="flex" width="100%" justifyContent="center" alignItems="center">Loading...</Box>
+        )
+      }
       <Box>
         <Pagination
           onChange={handlePageChange}

@@ -4,8 +4,9 @@ import { HiOutlineDocumentText } from "react-icons/hi";
 import { GoPrimitiveDot } from "react-icons/go";
 import "../Styles/Card.css";
 import { ConfirmBox } from "../Modal/ConfirmBox";
+import { UpdateModal } from "../Modal/UpdateModal";
 
-const Cards = ({ id,page, img, last_update, lesson, minute, status, tag, title }) => {
+const Cards = ({ id, page, img, last_update, lesson, minute, status, tag, title }) => {
 
   return (
     <>
@@ -67,8 +68,9 @@ const Cards = ({ id,page, img, last_update, lesson, minute, status, tag, title }
               })
             }
           </Box>
-          <Box alignSelf="bottom" display="flex" justifyContent="center" alignItems="center" padding="1%">
+          <Box width="100%" alignSelf="bottom" display="flex" justifyContent="space-around" alignItems="center" padding="1%" paddingTop="3%">
             <ConfirmBox key={id} id={id} page={page}/>
+            <UpdateModal id={id} page={page}/>
           </Box>
         </Box>
       </Box>
