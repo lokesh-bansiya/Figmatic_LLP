@@ -6,7 +6,7 @@ const getDashboardData = (page, value) => (dispatch) => {
 
     if(value === "LIVE" || value === "DRAFT" || value === "ARCHIVED")
     {
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?page=${page}&limit=12&status=${value}`)
+        return axios.get(`https://figmatic-llp-v29x.vercel.app/dashboard?page=${page}&limit=12&status=${value}`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -16,7 +16,7 @@ const getDashboardData = (page, value) => (dispatch) => {
     }
     else if(value === "Marketing" || value === "Sales")
     {
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard??page=${page}&limit=12&tag=${value}`)
+        return axios.get(`https://figmatic-llp-v29x.vercel.app/dashboard??page=${page}&limit=12&tag=${value}`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -25,7 +25,7 @@ const getDashboardData = (page, value) => (dispatch) => {
         })
     }
     else{
-        return axios.get(`https://awesome-products-backend.vercel.app/dashboard?page=${page}&limit=12&`)
+        return axios.get(`https://figmatic-llp-v29x.vercel.app/dashboard?page=${page}&limit=12&`)
         .then((res) => {
             dispatch({ type: types.GET_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -37,7 +37,7 @@ const getDashboardData = (page, value) => (dispatch) => {
 
 const addNewDashboardData = (payload) => (dispatch) => {
     dispatch({ type: types.ADD_NEW_DASHBOARD_DATA_REQUEST });
-    return axios.post(`https://awesome-products-backend.vercel.app/dashboard/add`, payload)
+    return axios.post(`https://figmatic-llp-v29x.vercel.app/dashboard/add`, payload)
         .then((res) => {
             dispatch({ type: types.ADD_NEW_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -48,7 +48,7 @@ const addNewDashboardData = (payload) => (dispatch) => {
 
 const updateDashboardData = (id, payload) => (dispatch) => {
     dispatch({ type: types.UPDATE_DASHBOARD_DATA_REQUEST });
-    return axios.patch(`https://awesome-products-backend.vercel.app/dashboard/update/${id}`, payload)
+    return axios.patch(`https://figmatic-llp-v29x.vercel.app/dashboard/update/${id}`, payload)
         .then((res) => {
             dispatch({ type: types.UPDATE_DASHBOARD_DATA_SUCCESS, payload: res.data });
         })
@@ -60,7 +60,7 @@ const updateDashboardData = (id, payload) => (dispatch) => {
 
 const deleteDashboardData = (id) => (dispatch) => {
     dispatch({ type: types.DELETE_DASHBOARD_REQUEST });
-    return axios.delete(`https://awesome-products-backend.vercel.app/dashboard/delete/${id}`)
+    return axios.delete(`https://figmatic-llp-v29x.vercel.app/dashboard/delete/${id}`)
         .then((res) => {
             dispatch({ type: types.DELETE_DASHBOARD_SUCCESS, payload: res.data });
         })
@@ -71,7 +71,7 @@ const deleteDashboardData = (id) => (dispatch) => {
 
 const getDashboardById = (id) => (dispatch) => {
     dispatch({type: types.GET_DASHBOARD_BYID_REQUEST});
-    return axios.get(`https://awesome-products-backend.vercel.app/dashboard/getById/${id}`)
+    return axios.get(`https://figmatic-llp-v29x.vercel.app/dashboard/getById/${id}`)
     .then((res) => {
         dispatch({ type: types.GET_DASHBOARD_BYID_SUCCESS, payload: res.data });
     })
