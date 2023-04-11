@@ -3,7 +3,7 @@ import * as types from "./actionTypes";
 
 const getData = (page) => (dispatch) => {
     dispatch({ type: types.GET_DATA_REQUEST });
-    return axios.get(`https://awesome-products-backend.vercel.app/calculator?page=${page}&limit=5`)
+    return axios.get(`https://figmatic-llp-v29x.vercel.app/calculator?page=${page}&limit=5`)
         .then((res) => {
             dispatch({ type: types.GET_DATA_SUCCESS, payload: res.data });
         })
@@ -14,7 +14,7 @@ const getData = (page) => (dispatch) => {
 
 const addNewData = (payload) => (dispatch) => {
     dispatch({ type: types.ADD_NEW_DATA_REQUEST });
-    return axios.post(`https://awesome-products-backend.vercel.app/calculator/add`, payload)
+    return axios.post(`https://figmatic-llp-v29x.vercel.app/calculator/add`, payload)
         .then((res) => {
             dispatch({ type: types.ADD_NEW_DATA_SUCCESS, payload: res.data });
         })
@@ -25,7 +25,7 @@ const addNewData = (payload) => (dispatch) => {
 
 const updateData = (id, payload) => (dispatch) => {
     dispatch({ type: types.UPDATE_DATA_REQUEST });
-    return axios.patch(`https://awesome-products-backend.vercel.app/calculator/update/${id}`, payload)
+    return axios.patch(`https://figmatic-llp-v29x.vercel.app/calculator/update/${id}`, payload)
         .then((res) => {
             dispatch({ type: types.UPDATE_DATA_SUCCESS, payload: res.data });
         })
@@ -37,7 +37,7 @@ const updateData = (id, payload) => (dispatch) => {
 
 const deleteData = (id) => (dispatch) => {
     dispatch({ type: types.DELETE_REQUEST });
-    return axios.delete(`https://awesome-products-backend.vercel.app/calculator/delete/${id}`)
+    return axios.delete(`https://figmatic-llp-v29x.vercel.app/calculator/delete/${id}`)
         .then((res) => {
             dispatch({ type: types.DELETE_SUCCESS, payload: res.data });
         })
